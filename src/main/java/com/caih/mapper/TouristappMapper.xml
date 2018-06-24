@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.caih.mapper.TouristappMapper" >
+  <resultMap id="BaseResultMap" type="com.caih.po.Touristapp" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="mounth" property="mounth" jdbcType="VARCHAR" />
+    <result column="dat" property="dat" jdbcType="VARCHAR" />
+    <result column="remoteProvinceName" property="remoteprovincename" jdbcType="VARCHAR" />
+    <result column="remoteProvinceId" property="remoteprovinceid" jdbcType="VARCHAR" />
+    <result column="localcityName" property="localcityname" jdbcType="VARCHAR" />
+    <result column="cityId" property="cityid" jdbcType="VARCHAR" />
+    <result column="area_id" property="areaId" jdbcType="VARCHAR" />
+    <result column="areaName" property="areaname" jdbcType="VARCHAR" />
+    <result column="appBigType" property="appbigtype" jdbcType="VARCHAR" />
+    <result column="appSmallType" property="appsmalltype" jdbcType="VARCHAR" />
+    <result column="num" property="num" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, mounth, dat, remoteProvinceName, remoteProvinceId, localcityName, cityId, area_id, 
+    areaName, appBigType, appSmallType, num, create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.caih.po.TouristappExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_travelbigscreen_touristapp
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_travelbigscreen_touristapp
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_travelbigscreen_touristapp
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.caih.po.TouristappExample" >
+    delete from t_travelbigscreen_touristapp
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.caih.po.Touristapp" >
+    insert into t_travelbigscreen_touristapp (id, mounth, dat, 
+      remoteProvinceName, remoteProvinceId, localcityName, 
+      cityId, area_id, areaName, 
+      appBigType, appSmallType, num, 
+      create_time)
+    values (#{id,jdbcType=VARCHAR}, #{mounth,jdbcType=VARCHAR}, #{dat,jdbcType=VARCHAR}, 
+      #{remoteprovincename,jdbcType=VARCHAR}, #{remoteprovinceid,jdbcType=VARCHAR}, #{localcityname,jdbcType=VARCHAR}, 
+      #{cityid,jdbcType=VARCHAR}, #{areaId,jdbcType=VARCHAR}, #{areaname,jdbcType=VARCHAR}, 
+      #{appbigtype,jdbcType=VARCHAR}, #{appsmalltype,jdbcType=VARCHAR}, #{num,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.caih.po.Touristapp" >
+    insert into t_travelbigscreen_touristapp
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="mounth != null" >
+        mounth,
+      </if>
+      <if test="dat != null" >
+        dat,
+      </if>
+      <if test="remoteprovincename != null" >
+        remoteProvinceName,
+      </if>
+      <if test="remoteprovinceid != null" >
+        remoteProvinceId,
+      </if>
+      <if test="localcityname != null" >
+        localcityName,
+      </if>
+      <if test="cityid != null" >
+        cityId,
+      </if>
+      <if test="areaId != null" >
+        area_id,
+      </if>
+      <if test="areaname != null" >
+        areaName,
+      </if>
+      <if test="appbigtype != null" >
+        appBigType,
+      </if>
+      <if test="appsmalltype != null" >
+        appSmallType,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="mounth != null" >
+        #{mounth,jdbcType=VARCHAR},
+      </if>
+      <if test="dat != null" >
+        #{dat,jdbcType=VARCHAR},
+      </if>
+      <if test="remoteprovincename != null" >
+        #{remoteprovincename,jdbcType=VARCHAR},
+      </if>
+      <if test="remoteprovinceid != null" >
+        #{remoteprovinceid,jdbcType=VARCHAR},
+      </if>
+      <if test="localcityname != null" >
+        #{localcityname,jdbcType=VARCHAR},
+      </if>
+      <if test="cityid != null" >
+        #{cityid,jdbcType=VARCHAR},
+      </if>
+      <if test="areaId != null" >
+        #{areaId,jdbcType=VARCHAR},
+      </if>
+      <if test="areaname != null" >
+        #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="appbigtype != null" >
+        #{appbigtype,jdbcType=VARCHAR},
+      </if>
+      <if test="appsmalltype != null" >
+        #{appsmalltype,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.caih.po.TouristappExample" resultType="java.lang.Integer" >
+    select count(*) from t_travelbigscreen_touristapp
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_travelbigscreen_touristapp
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mounth != null" >
+        mounth = #{record.mounth,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dat != null" >
+        dat = #{record.dat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remoteprovincename != null" >
+        remoteProvinceName = #{record.remoteprovincename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remoteprovinceid != null" >
+        remoteProvinceId = #{record.remoteprovinceid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.localcityname != null" >
+        localcityName = #{record.localcityname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cityid != null" >
+        cityId = #{record.cityid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.areaId != null" >
+        area_id = #{record.areaId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.areaname != null" >
+        areaName = #{record.areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appbigtype != null" >
+        appBigType = #{record.appbigtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appsmalltype != null" >
+        appSmallType = #{record.appsmalltype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.num != null" >
+        num = #{record.num,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_travelbigscreen_touristapp
+    set id = #{record.id,jdbcType=VARCHAR},
+      mounth = #{record.mounth,jdbcType=VARCHAR},
+      dat = #{record.dat,jdbcType=VARCHAR},
+      remoteProvinceName = #{record.remoteprovincename,jdbcType=VARCHAR},
+      remoteProvinceId = #{record.remoteprovinceid,jdbcType=VARCHAR},
+      localcityName = #{record.localcityname,jdbcType=VARCHAR},
+      cityId = #{record.cityid,jdbcType=VARCHAR},
+      area_id = #{record.areaId,jdbcType=VARCHAR},
+      areaName = #{record.areaname,jdbcType=VARCHAR},
+      appBigType = #{record.appbigtype,jdbcType=VARCHAR},
+      appSmallType = #{record.appsmalltype,jdbcType=VARCHAR},
+      num = #{record.num,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.caih.po.Touristapp" >
+    update t_travelbigscreen_touristapp
+    <set >
+      <if test="mounth != null" >
+        mounth = #{mounth,jdbcType=VARCHAR},
+      </if>
+      <if test="dat != null" >
+        dat = #{dat,jdbcType=VARCHAR},
+      </if>
+      <if test="remoteprovincename != null" >
+        remoteProvinceName = #{remoteprovincename,jdbcType=VARCHAR},
+      </if>
+      <if test="remoteprovinceid != null" >
+        remoteProvinceId = #{remoteprovinceid,jdbcType=VARCHAR},
+      </if>
+      <if test="localcityname != null" >
+        localcityName = #{localcityname,jdbcType=VARCHAR},
+      </if>
+      <if test="cityid != null" >
+        cityId = #{cityid,jdbcType=VARCHAR},
+      </if>
+      <if test="areaId != null" >
+        area_id = #{areaId,jdbcType=VARCHAR},
+      </if>
+      <if test="areaname != null" >
+        areaName = #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="appbigtype != null" >
+        appBigType = #{appbigtype,jdbcType=VARCHAR},
+      </if>
+      <if test="appsmalltype != null" >
+        appSmallType = #{appsmalltype,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.caih.po.Touristapp" >
+    update t_travelbigscreen_touristapp
+    set mounth = #{mounth,jdbcType=VARCHAR},
+      dat = #{dat,jdbcType=VARCHAR},
+      remoteProvinceName = #{remoteprovincename,jdbcType=VARCHAR},
+      remoteProvinceId = #{remoteprovinceid,jdbcType=VARCHAR},
+      localcityName = #{localcityname,jdbcType=VARCHAR},
+      cityId = #{cityid,jdbcType=VARCHAR},
+      area_id = #{areaId,jdbcType=VARCHAR},
+      areaName = #{areaname,jdbcType=VARCHAR},
+      appBigType = #{appbigtype,jdbcType=VARCHAR},
+      appSmallType = #{appsmalltype,jdbcType=VARCHAR},
+      num = #{num,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

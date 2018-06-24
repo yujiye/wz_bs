@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.caih.mapper.TouristtrackMapper" >
+  <resultMap id="BaseResultMap" type="com.caih.po.Touristtrack" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="mounth" property="mounth" jdbcType="VARCHAR" />
+    <result column="dat" property="dat" jdbcType="VARCHAR" />
+    <result column="provinceGXId" property="provincegxid" jdbcType="VARCHAR" />
+    <result column="provinceGXName" property="provincegxname" jdbcType="VARCHAR" />
+    <result column="cityId" property="cityid" jdbcType="VARCHAR" />
+    <result column="localcityName" property="localcityname" jdbcType="VARCHAR" />
+    <result column="remoteProvinceId" property="remoteprovinceid" jdbcType="VARCHAR" />
+    <result column="remoteProvinceName" property="remoteprovincename" jdbcType="VARCHAR" />
+    <result column="areaId" property="areaid" jdbcType="VARCHAR" />
+    <result column="areaName" property="areaname" jdbcType="VARCHAR" />
+    <result column="lng" property="lng" jdbcType="VARCHAR" />
+    <result column="lat" property="lat" jdbcType="VARCHAR" />
+    <result column="userNumber" property="usernumber" jdbcType="VARCHAR" />
+    <result column="scenicOrderV" property="scenicorderv" jdbcType="VARCHAR" />
+    <result column="countryOrderV" property="countryorderv" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, mounth, dat, provinceGXId, provinceGXName, cityId, localcityName, remoteProvinceId, 
+    remoteProvinceName, areaId, areaName, lng, lat, userNumber, scenicOrderV, countryOrderV, 
+    create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.caih.po.TouristtrackExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_travelbigscreen_touristtrack
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_travelbigscreen_touristtrack
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_travelbigscreen_touristtrack
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.caih.po.TouristtrackExample" >
+    delete from t_travelbigscreen_touristtrack
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.caih.po.Touristtrack" >
+    insert into t_travelbigscreen_touristtrack (id, mounth, dat, 
+      provinceGXId, provinceGXName, cityId, 
+      localcityName, remoteProvinceId, remoteProvinceName, 
+      areaId, areaName, lng, 
+      lat, userNumber, scenicOrderV, 
+      countryOrderV, create_time)
+    values (#{id,jdbcType=VARCHAR}, #{mounth,jdbcType=VARCHAR}, #{dat,jdbcType=VARCHAR}, 
+      #{provincegxid,jdbcType=VARCHAR}, #{provincegxname,jdbcType=VARCHAR}, #{cityid,jdbcType=VARCHAR}, 
+      #{localcityname,jdbcType=VARCHAR}, #{remoteprovinceid,jdbcType=VARCHAR}, #{remoteprovincename,jdbcType=VARCHAR}, 
+      #{areaid,jdbcType=VARCHAR}, #{areaname,jdbcType=VARCHAR}, #{lng,jdbcType=VARCHAR}, 
+      #{lat,jdbcType=VARCHAR}, #{usernumber,jdbcType=VARCHAR}, #{scenicorderv,jdbcType=VARCHAR}, 
+      #{countryorderv,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.caih.po.Touristtrack" >
+    insert into t_travelbigscreen_touristtrack
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="mounth != null" >
+        mounth,
+      </if>
+      <if test="dat != null" >
+        dat,
+      </if>
+      <if test="provincegxid != null" >
+        provinceGXId,
+      </if>
+      <if test="provincegxname != null" >
+        provinceGXName,
+      </if>
+      <if test="cityid != null" >
+        cityId,
+      </if>
+      <if test="localcityname != null" >
+        localcityName,
+      </if>
+      <if test="remoteprovinceid != null" >
+        remoteProvinceId,
+      </if>
+      <if test="remoteprovincename != null" >
+        remoteProvinceName,
+      </if>
+      <if test="areaid != null" >
+        areaId,
+      </if>
+      <if test="areaname != null" >
+        areaName,
+      </if>
+      <if test="lng != null" >
+        lng,
+      </if>
+      <if test="lat != null" >
+        lat,
+      </if>
+      <if test="usernumber != null" >
+        userNumber,
+      </if>
+      <if test="scenicorderv != null" >
+        scenicOrderV,
+      </if>
+      <if test="countryorderv != null" >
+        countryOrderV,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="mounth != null" >
+        #{mounth,jdbcType=VARCHAR},
+      </if>
+      <if test="dat != null" >
+        #{dat,jdbcType=VARCHAR},
+      </if>
+      <if test="provincegxid != null" >
+        #{provincegxid,jdbcType=VARCHAR},
+      </if>
+      <if test="provincegxname != null" >
+        #{provincegxname,jdbcType=VARCHAR},
+      </if>
+      <if test="cityid != null" >
+        #{cityid,jdbcType=VARCHAR},
+      </if>
+      <if test="localcityname != null" >
+        #{localcityname,jdbcType=VARCHAR},
+      </if>
+      <if test="remoteprovinceid != null" >
+        #{remoteprovinceid,jdbcType=VARCHAR},
+      </if>
+      <if test="remoteprovincename != null" >
+        #{remoteprovincename,jdbcType=VARCHAR},
+      </if>
+      <if test="areaid != null" >
+        #{areaid,jdbcType=VARCHAR},
+      </if>
+      <if test="areaname != null" >
+        #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="lng != null" >
+        #{lng,jdbcType=VARCHAR},
+      </if>
+      <if test="lat != null" >
+        #{lat,jdbcType=VARCHAR},
+      </if>
+      <if test="usernumber != null" >
+        #{usernumber,jdbcType=VARCHAR},
+      </if>
+      <if test="scenicorderv != null" >
+        #{scenicorderv,jdbcType=VARCHAR},
+      </if>
+      <if test="countryorderv != null" >
+        #{countryorderv,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.caih.po.TouristtrackExample" resultType="java.lang.Integer" >
+    select count(*) from t_travelbigscreen_touristtrack
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_travelbigscreen_touristtrack
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mounth != null" >
+        mounth = #{record.mounth,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dat != null" >
+        dat = #{record.dat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.provincegxid != null" >
+        provinceGXId = #{record.provincegxid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.provincegxname != null" >
+        provinceGXName = #{record.provincegxname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cityid != null" >
+        cityId = #{record.cityid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.localcityname != null" >
+        localcityName = #{record.localcityname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remoteprovinceid != null" >
+        remoteProvinceId = #{record.remoteprovinceid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remoteprovincename != null" >
+        remoteProvinceName = #{record.remoteprovincename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.areaid != null" >
+        areaId = #{record.areaid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.areaname != null" >
+        areaName = #{record.areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lng != null" >
+        lng = #{record.lng,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lat != null" >
+        lat = #{record.lat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usernumber != null" >
+        userNumber = #{record.usernumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scenicorderv != null" >
+        scenicOrderV = #{record.scenicorderv,jdbcType=VARCHAR},
+      </if>
+      <if test="record.countryorderv != null" >
+        countryOrderV = #{record.countryorderv,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_travelbigscreen_touristtrack
+    set id = #{record.id,jdbcType=VARCHAR},
+      mounth = #{record.mounth,jdbcType=VARCHAR},
+      dat = #{record.dat,jdbcType=VARCHAR},
+      provinceGXId = #{record.provincegxid,jdbcType=VARCHAR},
+      provinceGXName = #{record.provincegxname,jdbcType=VARCHAR},
+      cityId = #{record.cityid,jdbcType=VARCHAR},
+      localcityName = #{record.localcityname,jdbcType=VARCHAR},
+      remoteProvinceId = #{record.remoteprovinceid,jdbcType=VARCHAR},
+      remoteProvinceName = #{record.remoteprovincename,jdbcType=VARCHAR},
+      areaId = #{record.areaid,jdbcType=VARCHAR},
+      areaName = #{record.areaname,jdbcType=VARCHAR},
+      lng = #{record.lng,jdbcType=VARCHAR},
+      lat = #{record.lat,jdbcType=VARCHAR},
+      userNumber = #{record.usernumber,jdbcType=VARCHAR},
+      scenicOrderV = #{record.scenicorderv,jdbcType=VARCHAR},
+      countryOrderV = #{record.countryorderv,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.caih.po.Touristtrack" >
+    update t_travelbigscreen_touristtrack
+    <set >
+      <if test="mounth != null" >
+        mounth = #{mounth,jdbcType=VARCHAR},
+      </if>
+      <if test="dat != null" >
+        dat = #{dat,jdbcType=VARCHAR},
+      </if>
+      <if test="provincegxid != null" >
+        provinceGXId = #{provincegxid,jdbcType=VARCHAR},
+      </if>
+      <if test="provincegxname != null" >
+        provinceGXName = #{provincegxname,jdbcType=VARCHAR},
+      </if>
+      <if test="cityid != null" >
+        cityId = #{cityid,jdbcType=VARCHAR},
+      </if>
+      <if test="localcityname != null" >
+        localcityName = #{localcityname,jdbcType=VARCHAR},
+      </if>
+      <if test="remoteprovinceid != null" >
+        remoteProvinceId = #{remoteprovinceid,jdbcType=VARCHAR},
+      </if>
+      <if test="remoteprovincename != null" >
+        remoteProvinceName = #{remoteprovincename,jdbcType=VARCHAR},
+      </if>
+      <if test="areaid != null" >
+        areaId = #{areaid,jdbcType=VARCHAR},
+      </if>
+      <if test="areaname != null" >
+        areaName = #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="lng != null" >
+        lng = #{lng,jdbcType=VARCHAR},
+      </if>
+      <if test="lat != null" >
+        lat = #{lat,jdbcType=VARCHAR},
+      </if>
+      <if test="usernumber != null" >
+        userNumber = #{usernumber,jdbcType=VARCHAR},
+      </if>
+      <if test="scenicorderv != null" >
+        scenicOrderV = #{scenicorderv,jdbcType=VARCHAR},
+      </if>
+      <if test="countryorderv != null" >
+        countryOrderV = #{countryorderv,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.caih.po.Touristtrack" >
+    update t_travelbigscreen_touristtrack
+    set mounth = #{mounth,jdbcType=VARCHAR},
+      dat = #{dat,jdbcType=VARCHAR},
+      provinceGXId = #{provincegxid,jdbcType=VARCHAR},
+      provinceGXName = #{provincegxname,jdbcType=VARCHAR},
+      cityId = #{cityid,jdbcType=VARCHAR},
+      localcityName = #{localcityname,jdbcType=VARCHAR},
+      remoteProvinceId = #{remoteprovinceid,jdbcType=VARCHAR},
+      remoteProvinceName = #{remoteprovincename,jdbcType=VARCHAR},
+      areaId = #{areaid,jdbcType=VARCHAR},
+      areaName = #{areaname,jdbcType=VARCHAR},
+      lng = #{lng,jdbcType=VARCHAR},
+      lat = #{lat,jdbcType=VARCHAR},
+      userNumber = #{usernumber,jdbcType=VARCHAR},
+      scenicOrderV = #{scenicorderv,jdbcType=VARCHAR},
+      countryOrderV = #{countryorderv,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
