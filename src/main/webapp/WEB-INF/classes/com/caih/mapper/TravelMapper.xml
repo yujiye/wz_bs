@@ -73,6 +73,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			DATE_SUB(NOW(), INTERVAL 30 DAY) &lt; create_time
 		GROUP BY
 			totalFee
+		LIMIT 3
 	</select>
 	
 	<select id="findAppType" resultType="travelrecord">
@@ -92,46 +93,57 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="findtouristFlowDate" resultType="travelrecord">
-		SELECT 	
-			STR_TO_DATE(CONCAT(month_id,day_id,hour_id),'%Y%m%d%H') tkey,
-			hour_id tname,
-			SUM(usersum) tvalue
-		FROM 
-			wz_big_sc.t_travelbigscreen_scenicflowhours
-		WHERE
-			(SELECT DATE_FORMAT(NOW(),'%Y%m%d')) = CONCAT(month_id,day_id)
-		GROUP BY
-			hour_id
-		ORDER BY 
-			tkey
+		SELECT * FROM
+			(SELECT
+				STR_TO_DATE(CONCAT(month_id,day_id,hour_id),'%Y%m%d%H') tkey,
+				hour_id tname,
+				SUM(usersum) tvalue
+			FROM
+				wz_big_sc.t_travelbigscreen_scenicflowhours
+			WHERE
+				DATE_SUB(NOW(), INTERVAL 30 HOUR) &lt; STR_TO_DATE(CONCAT(month_id,day_id,hour_id),'%Y%m%d%H')
+			GROUP BY
+				tkey
+			ORDER BY
+				tkey DESC
+			LIMIT 24) tmptable
+		ORDER BY tkey
 	</select>
 	
 	<select id="findtouristFlowWeek" resultType="travelrecord">
-		SELECT 	
-			STR_TO_DATE(CONCAT(month_id,day_id),'%Y%m%d') tkey,
-			day_id tname,
-			SUM(SUM) tvalue
-		FROM 
-			wz_big_sc.t_travelbigscreen_scenicflowhours
-		WHERE
-			hour_id = '22' AND YEARWEEK(NOW()) = YEARWEEK(STR_TO_DATE(CONCAT(month_id,day_id),'%Y%m%d'))
-		GROUP BY
-			tkey
-		ORDER BY
-			tkey
+		SELECT * FROM
+			(SELECT
+				STR_TO_DATE(CONCAT(month_id,day_id),'%Y%m%d') tkey,
+				day_id tname,
+				SUM(SUM) tvalue
+			FROM
+				wz_big_sc.t_travelbigscreen_scenicflowhours
+			WHERE
+				hour_id = '22' AND DATE_SUB(NOW(), INTERVAL 9 DAY) &lt; STR_TO_DATE(CONCAT(month_id,day_id),'%Y%m%d')
+			GROUP BY
+				tkey
+			ORDER BY
+				tkey DESC
+			LIMIT 7) tmptable
+		ORDER BY tkey
 	</select>
 	
 	<select id="findtouristFlowMonth" resultType="travelrecord">
-		SELECT 	
-			STR_TO_DATE(CONCAT(month_id,day_id,hour_id),'%Y%m%d') tkey,
-			day_id tname,
-			SUM(SUM) tvalue
-		FROM 
-			wz_big_sc.t_travelbigscreen_scenicflowhours
-		WHERE
-			(SELECT DATE_FORMAT(NOW(),'%Y%m')) = month_id AND hour_id ='22'
-		GROUP BY
-			day_id
+		SELECT * FROM
+			(SELECT
+				STR_TO_DATE(CONCAT(month_id,day_id,hour_id),'%Y%m%d') tkey,
+				day_id tname,
+				SUM(SUM) tvalue
+			FROM
+				wz_big_sc.t_travelbigscreen_scenicflowhours
+			WHERE
+				hour_id ='22' AND DATE_SUB(NOW(), INTERVAL 32 DAY) &lt; STR_TO_DATE(CONCAT(month_id,day_id),'%Y%m%d')
+			GROUP BY
+				tkey
+			ORDER BY
+				tkey DESC
+			LIMIT 30) tmptable
+		ORDER BY tkey
 	</select>
 	
 </mapper>

@@ -2,17 +2,20 @@ package com.caih.vo;
 
 import java.util.Map;
 
+import com.caih.bo.TrafficUnit;
 import com.caih.po.TrafficRecord;
 
 public class TrafficData {
 
-	private TrafficRecord trafficRecord;
+	private TrafficUnit trafficUnit;
 	private Map<String,String> curveMinute;
-	public TrafficRecord getTrafficRecord() {
-		return trafficRecord;
+
+	public TrafficUnit getTrafficUnit() {
+		return trafficUnit;
 	}
-	public void setTrafficRecord(TrafficRecord trafficRecord) {
-		this.trafficRecord = trafficRecord;
+
+	public void setTrafficUnit(TrafficUnit trafficUnit) {
+		this.trafficUnit = trafficUnit;
 	}
 	public Map<String, String> getCurveMinute() {
 		return curveMinute;

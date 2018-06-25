@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import com.caih.bo.TrafficUnit;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -49,23 +50,42 @@ public class TrafficService {
 		}
 		return map;
 	}
-	private TrafficData getShowData(){
+	private TrafficData getData(){
 		TrafficData data = new TrafficData();
 		
 		try{
 			TrafficRecord record = getOneNewRecord(); 
 			Map<String,String> curve = getCurve();
-			
-			data.setTrafficRecord(record);
+			TrafficUnit trafficUnit = new TrafficUnit();
+			//设置当前拥堵指数
+			trafficUnit.setCurrent_index(record.getCurrent_index());
+			trafficUnit.setWeek_rate(record.getWeek_rate());
+			//设置拥堵里程
+			trafficUnit.setAvg_congest(record.getAvg_congest());
+			trafficUnit.setAvg_serious(record.getAvg_serious());
+			trafficUnit.setAvg_slowly(record.getAvg_slowly());
+			trafficUnit.setCongest(record.getCongest());
+			trafficUnit.setSerious(record.getSerious());
+			trafficUnit.setSlowly(record.getSlowly());
+			//设置早晚高峰
+			trafficUnit.setEvening_hour(record.getEvening_hour());
+			trafficUnit.setMorning_hour(record.getMorning_hour());
+			trafficUnit.setEvening_index(record.getEvening_index());
+			trafficUnit.setMorning_index(record.getMorning_index());
+			//设置道路拥堵指数
+			trafficUnit.setGeneral_way_index(record.getGeneral_way_index());
+			trafficUnit.setHighway_index(record.getHighway_index());
+			trafficUnit.setGeneral_way_speed(record.getGeneral_way_speed());
+			trafficUnit.setHighway_speed(record.getHighway_speed());
+			trafficUnit.setGeneral_way_week_rate(record.getGeneral_way_week_rate());
+			trafficUnit.setHighway_week_rate(record.getGeneral_way_week_rate());
+
+			data.setTrafficUnit(trafficUnit);
 			data.setCurveMinute(curve);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 		return data;
-	}
-
-	private TrafficData getData(){
-		return getShowData();
 	}
 	
 	public TrafficShow getShow(){

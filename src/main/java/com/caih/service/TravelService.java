@@ -38,14 +38,6 @@ public class TravelService {
         c.add(Calendar.DATE, - nDay);
         return c.getTime();
 	}
-	/*
-	 * float类型转百分比字符串
-	 * */
-	private String float2ratio(float n){
-		NumberFormat nf = NumberFormat.getPercentInstance();
-		nf.setMaximumFractionDigits(2);
-		return nf.format(n);
-	}
 	
 	private List<Scenicflowhours> getTodayData(){
 		
@@ -76,6 +68,7 @@ public class TravelService {
 	public List<TravelBaseUnit> getTouristVehicleNum(){
 		List<TravelBaseUnit> list = new ArrayList<TravelBaseUnit>(); 
 		List<TravelRecord> records = travelMapper.findVehicle();
+
 		for(TravelRecord record : records){
 			TravelBaseUnit baseunit = new TravelBaseUnit();
 			baseunit.setName(record.getTname());
@@ -88,17 +81,11 @@ public class TravelService {
 	public List<TravelBaseUnit> getStayTime(){
 		List<TravelBaseUnit> list = new ArrayList<TravelBaseUnit>(); 
 		List<TravelRecord> records = travelMapper.findStayTime();
-		float sum = 0;
-		//计算总数
-		for(TravelRecord record : records){
-			sum = sum + Float.parseFloat(record.getTvalue());
-		}
 		
 		for(TravelRecord record : records){
 			TravelBaseUnit baseunit = new TravelBaseUnit();
 			baseunit.setName(record.getTname());
-			String ratio = float2ratio(Float.parseFloat(record.getTvalue()) / sum);
-			baseunit.setValue(ratio);
+			baseunit.setValue(record.getTvalue());
 			list.add(baseunit);
 		}
 		return list;
@@ -149,16 +136,11 @@ public class TravelService {
 	public List<TravelBaseUnit> getAppType(){
 		List<TravelBaseUnit> list = new ArrayList<TravelBaseUnit>(); 
 		List<TravelRecord> records = travelMapper.findAppType();		
-		
-		float sum = 0;
-		for(TravelRecord record : records){			
-			sum = sum + Integer.parseInt(record.getTvalue());			
-		}
+
 		for(int i = 0; i < 10; i++){
 			TravelBaseUnit baseunit = new TravelBaseUnit();
 			baseunit.setName(records.get(i).getTname());
-			String ratio = float2ratio(Float.parseFloat(records.get(i).getTvalue()) / sum);
-			baseunit.setValue(ratio);
+			baseunit.setValue(records.get(i).getTvalue());
 			list.add(baseunit);
 		}
 		return list;
@@ -169,7 +151,7 @@ public class TravelService {
 		List<TravelRecord> records = travelMapper.findtouristFlowMonth();
 		for(TravelRecord record : records){
 			TravelBaseUnit baseunit = new TravelBaseUnit();
-			baseunit.setName(record.getTname());
+			baseunit.setName(record.getTkey());
 			baseunit.setValue(record.getTvalue());
 			list.add(baseunit);
 		}
@@ -181,7 +163,7 @@ public class TravelService {
 		List<TravelRecord> records = travelMapper.findtouristFlowDate();
 		for(TravelRecord record : records){
 			TravelBaseUnit baseunit = new TravelBaseUnit();
-			baseunit.setName(record.getTname());
+			baseunit.setName(record.getTkey());
 			baseunit.setValue(record.getTvalue());
 			list.add(baseunit);
 		}
@@ -193,7 +175,7 @@ public class TravelService {
 		List<TravelRecord> records = travelMapper.findtouristFlowWeek();
 		for(TravelRecord record : records){
 			TravelBaseUnit baseunit = new TravelBaseUnit();
-			baseunit.setName(record.getTname());
+			baseunit.setName(record.getTkey());
 			baseunit.setValue(record.getTvalue());
 			list.add(baseunit);
 		}
