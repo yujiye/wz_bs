@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import com.caih.bo.TrafficUnit;
+import com.caih.po.TrafficIndexRecord;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -32,6 +33,16 @@ public class TrafficService {
 		}
 		return record;
 	}
+	private TrafficIndexRecord getOneNewIndexRecord(){
+		TrafficIndexRecord record = null;
+		try{
+			TrafficMapper recordmapper = (TrafficMapper) applicationContext.getBean("trafficMapper");
+			record = recordmapper.findIndexNewOne();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return record;
+	}
 	private List<CurveRecord> getCurveRecordList(){
 		List<CurveRecord> curveRecords = null;
 		try{
@@ -54,7 +65,8 @@ public class TrafficService {
 		TrafficData data = new TrafficData();
 		
 		try{
-			TrafficRecord record = getOneNewRecord(); 
+			TrafficRecord record = getOneNewRecord();
+			TrafficIndexRecord indexRecord = getOneNewIndexRecord();
 			Map<String,String> curve = getCurve();
 			TrafficUnit trafficUnit = new TrafficUnit();
 			//设置当前拥堵指数
@@ -72,13 +84,13 @@ public class TrafficService {
 			trafficUnit.setMorning_hour(record.getMorning_hour());
 			trafficUnit.setEvening_index(record.getEvening_index());
 			trafficUnit.setMorning_index(record.getMorning_index());
-			//设置道路拥堵指数
+			//设置道路拥堵指数,用indexRecord设置高速相关的数据
 			trafficUnit.setGeneral_way_index(record.getGeneral_way_index());
-			trafficUnit.setHighway_index(record.getHighway_index());
+			trafficUnit.setHighway_index(indexRecord.getHighway_index());
 			trafficUnit.setGeneral_way_speed(record.getGeneral_way_speed());
-			trafficUnit.setHighway_speed(record.getHighway_speed());
+			trafficUnit.setHighway_speed(indexRecord.getHighway_speed());
 			trafficUnit.setGeneral_way_week_rate(record.getGeneral_way_week_rate());
-			trafficUnit.setHighway_week_rate(record.getHighway_week_rate());
+			trafficUnit.setHighway_week_rate(indexRecord.getHighway_week_rate());
 
 			data.setTrafficUnit(trafficUnit);
 			data.setCurveMinute(curve);

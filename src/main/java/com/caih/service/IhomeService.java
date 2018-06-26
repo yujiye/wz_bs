@@ -1,17 +1,11 @@
 package com.caih.service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
+import com.caih.bo.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.caih.bo.IhomeIll;
-import com.caih.bo.IhomeMerchantType;
-import com.caih.bo.IhomeServicePurchase;
-import com.caih.bo.IhomeUserNum;
 import com.caih.mapper.IhomeMapper;
 import com.caih.po.IhomeRecord;
 import com.caih.vo.IhomeData;
@@ -172,6 +166,55 @@ public class IhomeService {
 		ihomeUserNum.setZhiyuanzhe(userNum.get("青年志愿者"));
 		return ihomeUserNum;
 	}
+
+	private List<IhomeBaseUnit> getIhomeServicePurchaseA(){
+		List<IhomeBaseUnit> list = new ArrayList<IhomeBaseUnit>();
+//		Map<String, String> servicePurchase = (Map<String, String>) getMapsData("2").get("政府购买服务分布");//政府购买服务分布
+		List<IhomeRecord> servicePurchase = getRecordsById("2");
+		for(IhomeRecord e : servicePurchase){
+			IhomeBaseUnit tmp = new IhomeBaseUnit();
+			tmp.setName(e.getBussiness_key());
+			tmp.setValue(e.getBussiness_value1());
+			list.add(tmp);
+		}
+		return list;
+	}
+	private List<IhomeBaseUnit> getIhomeIllA(){
+		List<IhomeBaseUnit> list = new ArrayList<IhomeBaseUnit>();
+//		Map<String, String> ill = (Map<String, String>) getMapsData("3").get("病情分布");//病情分布
+		List<IhomeRecord> ill = getRecordsById("3");
+		for(IhomeRecord e : ill){
+			IhomeBaseUnit tmp = new IhomeBaseUnit();
+			tmp.setName(e.getBussiness_key());
+			tmp.setValue(e.getBussiness_value1());
+			list.add(tmp);
+		}
+		return list;
+	}
+	private List<IhomeBaseUnit> getIhomeMerchantTypeA(){
+		List<IhomeBaseUnit> list = new ArrayList<IhomeBaseUnit>();
+//		Map<String, String> merchantType = (Map<String, String>) getMapsData("4").get("商家类型分布");//商家类型分布
+		List<IhomeRecord> merchantType = getRecordsById("4");
+		for(IhomeRecord e : merchantType){
+			IhomeBaseUnit tmp = new IhomeBaseUnit();
+			tmp.setName(e.getBussiness_key());
+			tmp.setValue(e.getBussiness_value1());
+			list.add(tmp);
+		}
+		return list;
+	}
+	private List<IhomeBaseUnit> getIhomeUserNumA(){
+		List<IhomeBaseUnit> list = new ArrayList<IhomeBaseUnit>();
+//		Map<String, String> userNum = (Map<String, String>) getMapsData("14").get("用户数量");//用户数量
+		List<IhomeRecord> userNum = getRecordsById("14");
+		for(IhomeRecord e : userNum){
+			IhomeBaseUnit tmp = new IhomeBaseUnit();
+			tmp.setName(e.getBussiness_key());
+			tmp.setValue(e.getBussiness_value1());
+			list.add(tmp);
+		}
+		return list;
+	}
 	private IhomeData combineData(){
 		IhomeData ihomeData = new IhomeData();
 		Map<String, Object> peopleNum = getPeopleNum();
@@ -191,13 +234,13 @@ public class IhomeService {
 		//月服务时长
 		ihomeData.setServiceTimeMonth((Map<String, String>) serviceData.get("serviceTimeMonth"));
 		//政府购买服务分布
-		ihomeData.setServicePurchase(getIhomeServicePurchase());
+		ihomeData.setServicePurchase(getIhomeServicePurchaseA());
 		//病情分布
-		ihomeData.setIll(getIhomeIll());
+		ihomeData.setIll(getIhomeIllA());
 		//商家类型分布
-		ihomeData.setMerchantType(getIhomeMerchantType());
+		ihomeData.setMerchantType(getIhomeMerchantTypeA());
 		//用户数量
-		ihomeData.setUserNum(getIhomeUserNum());
+		ihomeData.setUserNum(getIhomeUserNumA());
 		return ihomeData;
 	}
 	private IhomeData getData(){

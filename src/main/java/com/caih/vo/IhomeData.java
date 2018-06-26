@@ -1,11 +1,9 @@
 package com.caih.vo;
 
+import java.util.List;
 import java.util.Map;
 
-import com.caih.bo.IhomeIll;
-import com.caih.bo.IhomeMerchantType;
-import com.caih.bo.IhomeServicePurchase;
-import com.caih.bo.IhomeUserNum;
+import com.caih.bo.*;
 
 public class IhomeData {
 	private String currentServiceNum;
@@ -15,10 +13,17 @@ public class IhomeData {
 	private String serviceTotalNumMonth;
 	private Map<String,String> serviceNumMonth;
 	private Map<String,String> serviceTimeMonth;
-	private IhomeServicePurchase servicePurchase;
-	private IhomeMerchantType merchantType;
-	private IhomeUserNum userNum;
-	private IhomeIll ill;
+
+//	private IhomeServicePurchase servicePurchase;
+//	private IhomeMerchantType merchantType;
+//	private IhomeUserNum userNum;
+//	private IhomeIll ill;
+
+	private List<IhomeBaseUnit> servicePurchase;
+	private List<IhomeBaseUnit> merchantType;
+	private List<IhomeBaseUnit> userNum;
+	private List<IhomeBaseUnit> ill;
+
 	public String getCurrentServiceNum() {
 		return currentServiceNum;
 	}
@@ -61,28 +66,36 @@ public class IhomeData {
 	public void setServiceTimeMonth(Map<String, String> serviceTimeMonth) {
 		this.serviceTimeMonth = serviceTimeMonth;
 	}
-	public IhomeServicePurchase getServicePurchase() {
+
+	public List<IhomeBaseUnit> getServicePurchase() {
 		return servicePurchase;
 	}
-	public void setServicePurchase(IhomeServicePurchase servicePurchase) {
+
+	public void setServicePurchase(List<IhomeBaseUnit> servicePurchase) {
 		this.servicePurchase = servicePurchase;
 	}
-	public IhomeMerchantType getMerchantType() {
+
+	public List<IhomeBaseUnit> getMerchantType() {
 		return merchantType;
 	}
-	public void setMerchantType(IhomeMerchantType merchantType) {
+
+	public void setMerchantType(List<IhomeBaseUnit> merchantType) {
 		this.merchantType = merchantType;
 	}
-	public IhomeUserNum getUserNum() {
+
+	public List<IhomeBaseUnit> getUserNum() {
 		return userNum;
 	}
-	public void setUserNum(IhomeUserNum userNum) {
+
+	public void setUserNum(List<IhomeBaseUnit> userNum) {
 		this.userNum = userNum;
 	}
-	public IhomeIll getIll() {
+
+	public List<IhomeBaseUnit> getIll() {
 		return ill;
 	}
-	public void setIll(IhomeIll ill) {
+
+	public void setIll(List<IhomeBaseUnit> ill) {
 		this.ill = ill;
 	}
 }

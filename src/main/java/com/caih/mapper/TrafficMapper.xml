@@ -43,7 +43,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				wz_big_sc.t_trafficbigscreen_trafficdata 
 		ORDER BY updatetime DESC
 		LIMIT 1
-	</select>	
+	</select>
+
+	<select id="findIndexNewOne" resultType="trafficindexrecord">
+		SELECT id,
+			highway_index,
+			highway_speed,
+			highway_week_rate,
+			general_way_index,
+			general_way_speed,
+			general_way_week_rate
+		FROM
+			wz_big_sc.t_trafficbigscreen_trafficindex
+		ORDER BY
+			create_time DESC
+		LIMIT 1
+	</select>
+
 	<select id="findCurve" resultType="curverecord">
 		SELECT	updatetime, 
 				current_index

@@ -2,17 +2,104 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="wz_bs:war exploded" />
+      <artifact name="wz_bs:war" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f55053b-bf38-488f-94a7-59c0b647c725" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/mapper/IhomeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/caih/mapper/IhomeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/mapper/PassengersourceMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/mapper/PassengersourceMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/mapper/ScenicflowdateMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/mapper/ScenicflowdateMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/mapper/ScenicflowhoursMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/mapper/ScenicflowhoursMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/mapper/StaytimeMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/mapper/StaytimeMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/mapper/TouristappMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/mapper/TouristappMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/mapper/TouristtrackMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/mapper/TouristtrackMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/mapper/TrafficMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/caih/mapper/TrafficMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/mapper/TrafficMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/caih/mapper/TrafficMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/mapper/TravelMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/caih/mapper/TravelMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/mapper/VehicletypeMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/mapper/VehicletypeMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/po/Passengersource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/po/PassengersourceExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/po/Scenicflowdate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/po/ScenicflowdateExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/po/Scenicflowhours.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/po/ScenicflowhoursExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/po/Staytime.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/po/StaytimeExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/po/Touristapp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/po/TouristappExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/po/Touristtrack.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/po/TouristtrackExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/po/Vehicletype.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/po/VehicletypeExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/service/IhomeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/caih/service/IhomeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/service/TrafficService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/caih/service/TrafficService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resource/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resource/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/wz_bs.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/wz_bs.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/wz_bs/WEB-INF/classes/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/wz_bs/WEB-INF/classes/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/service/TravelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/caih/service/TravelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caih/vo/IhomeData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/caih/vo/IhomeData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/mapper/IhomeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/mapper/IhomeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/mapper/PassengersourceMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/mapper/PassengersourceMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/mapper/ScenicflowdateMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/mapper/ScenicflowdateMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/mapper/ScenicflowhoursMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/mapper/ScenicflowhoursMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/mapper/StaytimeMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/mapper/StaytimeMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/mapper/TouristappMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/mapper/TouristappMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/mapper/TouristtrackMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/mapper/TouristtrackMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/mapper/TrafficMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/mapper/TrafficMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/mapper/TrafficMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/mapper/TrafficMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/mapper/VehicletypeMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/mapper/VehicletypeMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/Passengersource.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/PassengersourceExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/PassengersourceExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/PassengersourceExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/PassengersourceExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/Scenicflowdate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/ScenicflowdateExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/ScenicflowdateExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/ScenicflowdateExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/ScenicflowdateExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/Scenicflowhours.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/ScenicflowhoursExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/ScenicflowhoursExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/ScenicflowhoursExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/ScenicflowhoursExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/Staytime.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/StaytimeExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/StaytimeExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/StaytimeExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/StaytimeExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/Touristapp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/TouristappExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/TouristappExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/TouristappExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/TouristappExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/Touristtrack.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/TouristtrackExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/TouristtrackExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/TouristtrackExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/TouristtrackExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/Vehicletype.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/VehicletypeExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/VehicletypeExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/VehicletypeExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/po/VehicletypeExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/service/IhomeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/service/IhomeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/service/TrafficService.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/service/TrafficService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/service/TravelService.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/service/TravelService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/vo/IhomeData.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/caih/vo/IhomeData.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -25,20 +112,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="db.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resource/db.properties">
+      <file leaf-file-name="TravelService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/caih/service/TravelService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+            <state relative-caret-position="355">
+              <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TrafficService.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/caih/service/TrafficService.java">
+      <file leaf-file-name="db.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resource/db.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="80" column="74" selection-start-line="80" selection-start-column="74" selection-end-line="80" selection-end-column="74" />
+            <state relative-caret-position="38">
+              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TrafficMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/caih/mapper/TrafficMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="52" column="30" lean-forward="true" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TravelMapper.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/caih/mapper/TravelMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="232">
+              <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
+              <folding>
+                <element signature="e#518#522#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -62,12 +170,20 @@
         <option value="$PROJECT_DIR$/src/main/java/vo/IhomeData.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/caih/controller/GetData.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/caih/service/TravelService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/caih/mapper/TravelMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/caih/bo/TrafficUnit.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/caih/vo/TrafficData.java" />
-        <option value="$PROJECT_DIR$/src/main/resource/db.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/caih/vo/IhomeData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/caih/bo/IhomeBaseUnit.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/caih/mapper/IhomeMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/caih/service/IhomeService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/caih/po/TrafficIndexRecord.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/caih/mapper/TrafficMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/caih/mapper/TrafficMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/test/com/caih/TestUnit.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/caih/service/TrafficService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/caih/service/TravelService.java" />
+        <option value="$PROJECT_DIR$/src/main/resource/db.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/caih/mapper/TravelMapper.xml" />
       </list>
     </option>
   </component>
@@ -137,16 +253,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="caih" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wz_bs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wz_bs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="caih" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wz_bs" type="b2602c69:ProjectViewProjectNode" />
@@ -194,9 +301,32 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Tomcat Server.Tomcat9">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="TestUnit.testMapper" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="wz_bs" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.caih.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.caih" />
+      <option name="MAIN_CLASS_NAME" value="com.caih.TestUnit" />
+      <option name="METHOD_NAME" value="testMapper" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -313,6 +443,15 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Tomcat Server.Tomcat9" />
+      <item itemvalue="JUnit.TestUnit.testMapper" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TestUnit.testMapper" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -327,15 +466,29 @@
       <workItem from="1529851791152" duration="3680000" />
       <workItem from="1529855592310" duration="876000" />
       <workItem from="1529887412562" duration="16952000" />
-      <workItem from="1529973258252" duration="339000" />
+      <workItem from="1529973258252" duration="10977000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="TestUnit_testMapper - 2018.06.26 at 20h 59m 15s.xml">
+      <configuration name="TestUnit.testMapper" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestUnit_testMapper - 2018.06.26 at 21h 00m 17s.xml">
+      <configuration name="TestUnit.testMapper" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestUnit_testMapper - 2018.06.26 at 21h 02m 12s.xml">
+      <configuration name="TestUnit.testMapper" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestUnit_testMapper - 2018.06.26 at 21h 08m 31s.xml">
+      <configuration name="TestUnit.testMapper" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21847000" />
+    <option name="totallyTimeSpent" value="32485000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -353,7 +506,7 @@
       <window_info id="UI Designer" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.3284553" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32755905" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="7" />
@@ -380,6 +533,11 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pom.xml">
@@ -458,13 +616,6 @@
         <state relative-caret-position="-675" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/caih/service/IhomeService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="226" column="34" selection-start-line="226" selection-start-column="34" selection-end-line="226" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/caih/mapper/TravelMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -479,41 +630,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/caih/mapper/TravelMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1073">
-          <caret line="144" column="30" lean-forward="true" selection-start-line="144" selection-start-column="30" selection-end-line="144" selection-end-column="30" />
-          <folding>
-            <element signature="e#518#522#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/caih/service/TravelService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="175" column="43" lean-forward="true" selection-start-line="175" selection-start-column="43" selection-end-line="175" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/caih/bo/TrafficUnit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="25" column="38" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/caih/po/TrafficRecord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="32" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/caih/vo/TrafficData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
           <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#212#213#0" expanded="true" />
+            <element signature="e#237#238#0" expanded="true" />
+            <element signature="e#293#294#0" expanded="true" />
+            <element signature="e#330#331#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -527,17 +653,184 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resource/db.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/caih/bo/TrafficUnit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        <state relative-caret-position="346">
+          <caret line="25" column="38" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
+          <folding>
+            <element signature="e#726#727#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/caih/bo/TravelBaseUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/caih/vo/IhomeData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="69" column="53" selection-start-line="69" selection-start-column="53" selection-end-line="69" selection-end-column="53" />
+          <folding>
+            <element signature="e#2090#2091#0" expanded="true" />
+            <element signature="e#2162#2163#0" expanded="true" />
+            <element signature="e#2207#2208#0" expanded="true" />
+            <element signature="e#2256#2257#0" expanded="true" />
+            <element signature="e#2282#2283#0" expanded="true" />
+            <element signature="e#2348#2349#0" expanded="true" />
+            <element signature="e#2387#2388#0" expanded="true" />
+            <element signature="e#2431#2432#0" expanded="true" />
+            <element signature="e#2452#2453#0" expanded="true" />
+            <element signature="e#2508#2509#0" expanded="true" />
+            <element signature="e#2537#2538#0" expanded="true" />
+            <element signature="e#2577#2578#0" expanded="true" />
+            <element signature="e#2594#2595#0" expanded="true" />
+            <element signature="e#2642#2643#0" expanded="true" />
+            <element signature="e#2663#2664#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/caih/bo/IhomeBaseUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+          <folding>
+            <element signature="e#158#159#0" expanded="true" />
+            <element signature="e#198#199#0" expanded="true" />
+            <element signature="e#230#231#0" expanded="true" />
+            <element signature="e#262#263#0" expanded="true" />
+            <element signature="e#290#291#0" expanded="true" />
+            <element signature="e#332#333#0" expanded="true" />
+            <element signature="e#366#367#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/caih/mapper/IhomeMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/caih/mapper/IhomeMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="40" column="54" selection-start-line="40" selection-start-column="54" selection-end-line="40" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/caih/po/TrafficRecord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="5" selection-start-line="5" selection-end-line="32" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/caih/po/TrafficIndexRecord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="31" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="31" />
+          <folding>
+            <element signature="e#330#331#0" expanded="true" />
+            <element signature="e#355#356#0" expanded="true" />
+            <element signature="e#391#392#0" expanded="true" />
+            <element signature="e#419#420#0" expanded="true" />
+            <element signature="e#459#460#0" expanded="true" />
+            <element signature="e#495#496#0" expanded="true" />
+            <element signature="e#553#554#0" expanded="true" />
+            <element signature="e#603#604#0" expanded="true" />
+            <element signature="e#643#644#0" expanded="true" />
+            <element signature="e#679#680#0" expanded="true" />
+            <element signature="e#737#738#0" expanded="true" />
+            <element signature="e#787#788#0" expanded="true" />
+            <element signature="e#831#832#0" expanded="true" />
+            <element signature="e#871#872#0" expanded="true" />
+            <element signature="e#937#938#0" expanded="true" />
+            <element signature="e#995#996#0" expanded="true" />
+            <element signature="e#1039#1040#0" expanded="true" />
+            <element signature="e#1079#1080#0" expanded="true" />
+            <element signature="e#1145#1146#0" expanded="true" />
+            <element signature="e#1203#1204#0" expanded="true" />
+            <element signature="e#1247#1248#0" expanded="true" />
+            <element signature="e#1287#1288#0" expanded="true" />
+            <element signature="e#1353#1354#0" expanded="true" />
+            <element signature="e#1411#1412#0" expanded="true" />
+            <element signature="e#1459#1460#0" expanded="true" />
+            <element signature="e#1503#1504#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/caih/mapper/TrafficMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="11" column="48" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/test/com/caih/TestUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="17" column="26" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/caih/service/TrafficService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="80" column="74" selection-start-line="80" selection-start-column="74" selection-end-line="80" selection-end-column="74" />
+        <state relative-caret-position="1098">
+          <caret line="92" column="79" selection-start-line="92" selection-start-column="79" selection-end-line="92" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/caih/service/IhomeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-48">
+          <caret line="209" column="35" selection-start-line="209" selection-start-column="35" selection-end-line="209" selection-end-column="35" />
+          <folding>
+            <element signature="e#6784#6799#0" expanded="true" />
+            <element signature="e#7103#7118#0" expanded="true" />
+            <element signature="e#7474#7489#0" expanded="true" />
+            <element signature="e#7877#7892#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/caih/service/TravelService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resource/db.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/caih/mapper/TrafficMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="52" column="30" lean-forward="true" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/caih/mapper/TravelMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
+          <folding>
+            <element signature="e#518#522#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,6 +1,5 @@
 package com.caih.service;
 
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -12,18 +11,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.caih.bo.TravelBaseUnit;
 import com.caih.bo.TravelTouristUnit;
 import com.caih.mapper.TravelMapper;
-import com.caih.mapper.VehicletypeMapper;
-import com.caih.po.Scenicflowhours;
 import com.caih.po.TravelRecord;
-import com.caih.po.Vehicletype;
-import com.caih.po.VehicletypeExample;
 import com.caih.vo.TravelData;
 import com.caih.vo.TravelShow;
 
 public class TravelService {
 	private ApplicationContext applicationContext = null;
 	TravelMapper travelMapper = null;
-	VehicletypeMapper vehicletypeMapper = null;
 	
 	public TravelService(){
 		applicationContext = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
@@ -37,32 +31,6 @@ public class TravelService {
 		c.setTime(new Date());
         c.add(Calendar.DATE, - nDay);
         return c.getTime();
-	}
-	
-	private List<Scenicflowhours> getTodayData(){
-		
-		return null;
-	}
-	private List<Vehicletype> getMonthAgoVehicletypeData(){
-		
-		Date currentTime = getAgoTime(0);//当前时间
-		Date monthAgoTime = getAgoTime(31);//一个月前时间
-		
-		VehicletypeExample vtExample = new VehicletypeExample();
-		VehicletypeExample.Criteria criteria = vtExample.createCriteria();
-		criteria.andCreateTimeBetween(monthAgoTime, currentTime);//设置查询条件
-		
-		List<Vehicletype> list = vehicletypeMapper.selectByExample(vtExample);
-		return list;
-	}
-	
-	public List<TravelTouristUnit> getTouristNum(){
-		List<TravelTouristUnit> list = new ArrayList<TravelTouristUnit>();
-		TravelTouristUnit temp = new TravelTouristUnit();
-		
-		List<Scenicflowhours> sfhList =  getTodayData();
-		
-		return list;
 	}
 	//交通工具
 	public List<TravelBaseUnit> getTouristVehicleNum(){

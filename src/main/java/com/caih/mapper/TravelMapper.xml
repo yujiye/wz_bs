@@ -32,7 +32,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			DATE_SUB(NOW(), INTERVAL 30 DAY) &lt; create_time AND hour_id="22"
 		GROUP BY from_provno
 		ORDER BY tvalue DESC
-		LIMIT 11
+		LIMIT 10
 	</select>
 	
 	<select id="findStayTime" resultType="travelrecord">

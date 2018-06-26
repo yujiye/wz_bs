@@ -38,6 +38,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			z_statistics_table
 		WHERE
 			z_statistics_table.isnew = '1' AND statistics_id = #{id}
+		ORDER BY CONVERT(bussiness_value1,SIGNED) DESC
 	</select>	
 	
 </mapper>
