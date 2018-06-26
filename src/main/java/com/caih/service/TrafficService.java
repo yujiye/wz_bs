@@ -78,7 +78,7 @@ public class TrafficService {
 			trafficUnit.setGeneral_way_speed(record.getGeneral_way_speed());
 			trafficUnit.setHighway_speed(record.getHighway_speed());
 			trafficUnit.setGeneral_way_week_rate(record.getGeneral_way_week_rate());
-			trafficUnit.setHighway_week_rate(record.getGeneral_way_week_rate());
+			trafficUnit.setHighway_week_rate(record.getHighway_week_rate());
 
 			data.setTrafficUnit(trafficUnit);
 			data.setCurveMinute(curve);
