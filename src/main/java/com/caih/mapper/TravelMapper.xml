@@ -61,6 +61,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			scenic_code
 		ORDER BY tvalue DESC
 	</select>
+
+	<select id="findTouristFolwHoursYesterday" resultType="travelrecord">
+		SELECT
+			scenic_code tkey,
+			scenic_name tname,
+			SUM(SUM) tvalue
+		FROM
+			wz_big_sc.t_travelbigscreen_scenicflowhours
+		WHERE
+			STR_TO_DATE(DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 25 HOUR),'%Y%m%d%H'),'%Y%m%d%H') = STR_TO_DATE(CONCAT(month_id,day_id,hour_id),'%Y%m%d%H')
+		GROUP BY
+			scenic_code
+		ORDER BY tvalue DESC
+	</select>
 	
 	<select id="findConsumption" resultType="travelrecord">
 		SELECT 

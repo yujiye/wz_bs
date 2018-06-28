@@ -9,6 +9,7 @@ public interface TravelMapper {
 	public List<TravelRecord> findTouristSource();
 	public List<TravelRecord> findStayTime();
 	public List<TravelRecord> findTouristFolwHours();
+	public List<TravelRecord> findTouristFolwHoursYesterday();
 	public List<TravelRecord> findConsumption();
 	public List<TravelRecord> findAppType();
 	public List<TravelRecord> findtouristFlowDate();

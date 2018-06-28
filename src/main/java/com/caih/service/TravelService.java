@@ -1,9 +1,6 @@
 package com.caih.service;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -31,6 +28,13 @@ public class TravelService {
 		c.setTime(new Date());
         c.add(Calendar.DATE, - nDay);
         return c.getTime();
+	}
+	private Map<String,String> travelRecordList2Map(List<TravelRecord> list){
+		Map<String,String> map = new HashMap<String,String>();
+		for(TravelRecord e : list){
+			map.put(e.getTkey(),e.getTvalue());
+		}
+		return map;
 	}
 	//交通工具
 	public List<TravelBaseUnit> getTouristVehicleNum(){
@@ -74,17 +78,30 @@ public class TravelService {
 	public List<TravelTouristUnit> getTouristFolwHours(){
 		List<TravelTouristUnit> list = new ArrayList<TravelTouristUnit>(); 
 		List<TravelRecord> records = travelMapper.findTouristFolwHours();
+		List<TravelRecord> yesterdayRecords = travelMapper.findTouristFolwHoursYesterday();
+		Map<String,String> yesterdayMap = travelRecordList2Map(yesterdayRecords);
+
 		int sum = 0;
+		int yesterdaySum = 0;
+		//计算今天的当前总人数并赋值
 		for(TravelRecord record : records){
 			TravelTouristUnit baseunit = new TravelTouristUnit();
 			baseunit.setName(record.getTname());
 			baseunit.setNum(record.getTvalue());
+			//获取昨天的人数
+			baseunit.setDategrowth(yesterdayMap.get(record.getTkey()));
 			sum = sum + Integer.parseInt(record.getTvalue());
 			list.add(baseunit);
 		}
+		//计算昨天的同时刻的总人数
+		for(String key : yesterdayMap.keySet()){
+			yesterdaySum = yesterdaySum + Integer.parseInt(yesterdayMap.get(key));
+		}
+
 		TravelTouristUnit baseunit = new TravelTouristUnit();
 		baseunit.setName("currentNum");
 		baseunit.setNum(String.valueOf(sum));
+		baseunit.setDategrowth(String.valueOf(yesterdaySum));
 		list.add(0, baseunit);
 		return list;
 	}
