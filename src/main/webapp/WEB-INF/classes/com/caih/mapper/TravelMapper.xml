@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM
 		wz_big_sc.t_travelbigscreen_vehicletype
 		WHERE
-		DATE_SUB(NOW(), INTERVAL 30 DAY) &lt; STR_TO_DATE(CONCAT(month_id,day_id),'%Y%m%d')
+		DATE_SUB(NOW(), INTERVAL 30 DAY) &lt; STR_TO_DATE(CONCAT(month_id,LPAD(day_id,2,0)),'%Y%m%d')
 		GROUP BY
 		vehicle
 	</select>	
@@ -63,17 +63,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="findTouristFolwHoursYesterday" resultType="travelrecord">
-		SELECT
-			scenic_code tkey,
-			scenic_name tname,
-			SUM(SUM) tvalue
-		FROM
-			wz_big_sc.t_travelbigscreen_scenicflowhours
-		WHERE
-			STR_TO_DATE(DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 25 HOUR),'%Y%m%d%H'),'%Y%m%d%H') = STR_TO_DATE(CONCAT(month_id,day_id,hour_id),'%Y%m%d%H')
-		GROUP BY
-			scenic_code
-		ORDER BY tvalue DESC
+        SELECT
+            scenic_code tkey,
+            scenic_name tname,
+            SUM(SUM) tvalue
+        FROM
+            wz_big_sc.t_travelbigscreen_scenicflowhours
+        WHERE
+            STR_TO_DATE(DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 25 HOUR),'%Y%m%d%H'),'%Y%m%d%H') = STR_TO_DATE(CONCAT(month_id,LPAD(day_id,2,0),LPAD(hour_id,2,0)),'%Y%m%d%H')
+        GROUP BY
+            scenic_code
+        ORDER BY tvalue DESC
 	</select>
 	
 	<select id="findConsumption" resultType="travelrecord">
@@ -109,13 +109,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="findtouristFlowDate" resultType="travelrecord">
 		SELECT * FROM
 			(SELECT
-				STR_TO_DATE(CONCAT(month_id,day_id,hour_id),'%Y%m%d%H') tkey,
+				STR_TO_DATE(CONCAT(month_id,LPAD(day_id,2,0),LPAD(hour_id,2,0)),'%Y%m%d%H') tkey,
 				hour_id tname,
 				SUM(usersum) tvalue
 			FROM
 				wz_big_sc.t_travelbigscreen_scenicflowhours
 			WHERE
-				DATE_SUB(NOW(), INTERVAL 30 HOUR) &lt; STR_TO_DATE(CONCAT(month_id,day_id,hour_id),'%Y%m%d%H')
+				DATE_SUB(NOW(), INTERVAL 30 HOUR) &lt; STR_TO_DATE(CONCAT(month_id,LPAD(day_id,2,0),LPAD(hour_id,2,0)),'%Y%m%d%H')
 			GROUP BY
 				tkey
 			ORDER BY
@@ -127,13 +127,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="findtouristFlowWeek" resultType="travelrecord">
 		SELECT * FROM
 			(SELECT
-				STR_TO_DATE(CONCAT(month_id,day_id),'%Y%m%d') tkey,
+				STR_TO_DATE(CONCAT(month_id,LPAD(day_id,2,0)),'%Y%m%d') tkey,
 				day_id tname,
 				SUM(SUM) tvalue
 			FROM
 				wz_big_sc.t_travelbigscreen_scenicflowhours
 			WHERE
-				hour_id = '22' AND DATE_SUB(NOW(), INTERVAL 9 DAY) &lt; STR_TO_DATE(CONCAT(month_id,day_id),'%Y%m%d')
+				hour_id = '22' AND DATE_SUB(NOW(), INTERVAL 9 DAY) &lt; STR_TO_DATE(CONCAT(month_id,LPAD(day_id,2,0)),'%Y%m%d')
 			GROUP BY
 				tkey
 			ORDER BY
@@ -145,13 +145,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="findtouristFlowMonth" resultType="travelrecord">
 		SELECT * FROM
 			(SELECT
-				STR_TO_DATE(CONCAT(month_id,day_id,hour_id),'%Y%m%d') tkey,
+				STR_TO_DATE(CONCAT(month_id,LPAD(day_id,2,0),LPAD(hour_id,2,0)),'%Y%m%d') tkey,
 				day_id tname,
 				SUM(SUM) tvalue
 			FROM
 				wz_big_sc.t_travelbigscreen_scenicflowhours
 			WHERE
-				hour_id ='22' AND DATE_SUB(NOW(), INTERVAL 32 DAY) &lt; STR_TO_DATE(CONCAT(month_id,day_id),'%Y%m%d')
+				hour_id ='22' AND DATE_SUB(NOW(), INTERVAL 32 DAY) &lt; STR_TO_DATE(CONCAT(month_id,LPAD(day_id,2,0)),'%Y%m%d')
 			GROUP BY
 				tkey
 			ORDER BY
