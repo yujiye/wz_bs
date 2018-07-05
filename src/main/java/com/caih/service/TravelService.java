@@ -105,6 +105,49 @@ public class TravelService {
 		list.add(0, baseunit);
 		return list;
 	}
+	//当日游客人数-修复bug
+	public List<TravelTouristUnit> getTouristFolwHoursbak(){
+		List<TravelTouristUnit> list = new ArrayList<TravelTouristUnit>();
+		List<TravelRecord> records = null;
+		List<TravelRecord> yesterdayRecords = null;
+		//nday表示前nday天
+		int nday = 0;
+		while(records == null || records.isEmpty()){
+			//获取今天的游客数量，循环保证数据断档时仍能取到历史数据
+			records = travelMapper.findTouristFolwHoursbak( nday );
+			nday++;
+		}
+		while (yesterdayRecords == null || yesterdayRecords.isEmpty()) {
+			//获取昨天的游客数量，循环保证数据断档时仍能取到历史数据
+			yesterdayRecords = travelMapper.findTouristFolwHoursbak( nday );
+			nday++;
+		}
+		Map<String,String> yesterdayMap = travelRecordList2Map(yesterdayRecords);
+
+		int sum = 0;
+		int yesterdaySum = 0;
+		//计算今天的当前总人数并赋值
+		for(TravelRecord record : records){
+			TravelTouristUnit baseunit = new TravelTouristUnit();
+			baseunit.setName(record.getTname());
+			baseunit.setNum(record.getTvalue());
+			//获取昨天的人数
+			baseunit.setDategrowth(yesterdayMap.get(record.getTkey()));
+			sum = sum + Integer.parseInt(record.getTvalue());
+			list.add(baseunit);
+		}
+		//计算昨天的同时刻的总人数
+		for(String key : yesterdayMap.keySet()){
+			yesterdaySum = yesterdaySum + Integer.parseInt(yesterdayMap.get(key));
+		}
+
+		TravelTouristUnit baseunit = new TravelTouristUnit();
+		baseunit.setName("currentNum");
+		baseunit.setNum(String.valueOf(sum));
+		baseunit.setDategrowth(String.valueOf(yesterdaySum));
+		list.add(0, baseunit);
+		return list;
+	}
 	//消费
 	public List<TravelBaseUnit> getConsumption(){
 		List<TravelBaseUnit> list = new ArrayList<TravelBaseUnit>(); 
@@ -173,7 +216,7 @@ public class TravelService {
 		travelData.setTouristVehicle(getTouristVehicleNum());
 		travelData.setStayTime(getStayTime());
 		travelData.setTouristSource(getTouristSource());
-		travelData.setTouristNum(getTouristFolwHours());
+		travelData.setTouristNum(getTouristFolwHoursbak());
 		travelData.setConsumption(getConsumption());
 		travelData.setTouristApp(getAppType());
 		
