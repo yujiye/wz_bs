@@ -2,6 +2,8 @@ package com.caih.service;
 
 import java.util.*;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -15,7 +17,7 @@ import com.caih.vo.TravelShow;
 public class TravelService {
 	private ApplicationContext applicationContext = null;
 	TravelMapper travelMapper = null;
-	
+
 	public TravelService(){
 		applicationContext = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
 		travelMapper = (TravelMapper) applicationContext.getBean("travelMapper");
