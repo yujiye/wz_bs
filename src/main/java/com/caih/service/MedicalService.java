@@ -9,7 +9,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.caih.util.HttpRequestProxyUtils;
 import com.caih.vo.MedicalData;
 import com.caih.vo.MedicalShow;
+import org.springframework.stereotype.Service;
 
+@Service
 public class MedicalService {
 	
 	private String URL2JsonText(String url){

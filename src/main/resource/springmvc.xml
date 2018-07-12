@@ -16,8 +16,10 @@
 		http://www.springframework.org/schema/task
 		http://www.springframework.org/schema/task/spring-task-3.2.xsd">
 	
-	<context:component-scan base-package="com.caih.controller"></context:component-scan>
-	<context:component-scan base-package="com.caih.util"></context:component-scan>
+	<!--<context:component-scan base-package="com.caih.controller"></context:component-scan>-->
+	<!--<context:component-scan base-package="com.caih.util"></context:component-scan>-->
+	<!--<context:component-scan base-package="com.caih.service"></context:component-scan>-->
+	<context:component-scan base-package="com.caih.*"></context:component-scan>
 	
 	<mvc:annotation-driven></mvc:annotation-driven>
 	
@@ -26,5 +28,37 @@
      <!-- 开启这个配置 spring才能识别@Scheduled注解 -->
      <task:annotation-driven scheduler="qbScheduler" mode="proxy"/>
      <task:scheduler id="qbScheduler" pool-size="10"/>
+
+	<!-- 加载配置文件 -->
+	<context:property-placeholder location="classpath:db.properties" />
+	<!--
+        <context:component-scan base-package="com.caih.service" />
+    -->
+	<!-- 数据源，使用dbcp -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		  destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="maxActive" value="10" />
+		<property name="maxIdle" value="5" />
+	</bean>
+
+
+	<!-- sqlSessinFactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 加载mybatis的配置文件 -->
+		<property name="configLocation" value="classpath:SqlMapConfig.xml" />
+		<!-- 数据源 -->
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- mapper扫描器 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- 扫描包路径，如果需要扫描多个包，中间使用半角逗号隔开 -->
+		<property name="basePackage" value="com.caih.mapper"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean>
 	
 </beans>

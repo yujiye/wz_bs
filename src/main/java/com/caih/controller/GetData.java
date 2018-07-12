@@ -2,6 +2,7 @@ package com.caih.controller;
 
 import com.caih.service.*;
 import com.caih.vo.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,10 +12,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class GetData {
 
+	@Autowired
+	IhomeService ihomeService;
+	@Autowired
+	TrafficService trafficService;
+	@Autowired
+	MedicalService medicalService;
+	@Autowired
+	TravelService travelService;
+    @Autowired
+    ApprovalService approvalService;
+
 	@CrossOrigin(origins={"*"}, methods={RequestMethod.GET, RequestMethod.POST})
 	@RequestMapping("/getIhomeData")
-	public @ResponseBody IhomeShow getIhomeData(){		
-		IhomeService ihomeService = new IhomeService();
+	public @ResponseBody IhomeShow getIhomeData(){
 		return ihomeService.getShow();
 	}
 	
@@ -22,7 +33,6 @@ public class GetData {
 	@RequestMapping("/getTrafficData")
 	@ResponseBody
 	public TrafficShow getTrafficData(){
-		TrafficService trafficService = new TrafficService();
 		return trafficService.getShow();
 	}
 	
@@ -30,15 +40,13 @@ public class GetData {
 	@RequestMapping("/getMedicalData")
 	@ResponseBody
 	public MedicalShow getMedicalData(){
-		MedicalService medicalService = new MedicalService();
 		return medicalService.getShow();
 	}
-	
+
 	@CrossOrigin(origins={"*"}, methods={RequestMethod.GET, RequestMethod.POST})
 	@RequestMapping("/getTravelData")
 	@ResponseBody
 	public TravelShow getTravelData(){
-		TravelService travelService = new TravelService();
 		return travelService.getShow();
 	}
 
@@ -46,7 +54,6 @@ public class GetData {
 	@RequestMapping("/getApprovalData")
 	@ResponseBody
 	public ApprovalShow getApprovalData(){
-		ApprovalService approvalService = new ApprovalService();
 		return approvalService.getShow();
 	}
 }

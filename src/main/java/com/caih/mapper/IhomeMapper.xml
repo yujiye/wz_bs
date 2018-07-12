@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 -->
 <mapper namespace="com.caih.mapper.IhomeMapper">
 
-	<select id="findNew" resultType="ihomerecord">
+	<select id="findNew" resultType="com.caih.po.IhomeRecord">
 		SELECT
 			z_statistics_table.statistics_id,
 			z_statistics_table.statistics_name,
@@ -24,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			z_statistics_table.isnew = '1'
 	</select>	
 	
-	<select id="findNewById" parameterType="java.lang.String" resultType="ihomerecord">
+	<select id="findNewById" parameterType="java.lang.String" resultType="com.caih.po.IhomeRecord">
 		SELECT
 			z_statistics_table.statistics_id,
 			z_statistics_table.statistics_name,

@@ -6,6 +6,7 @@ import java.util.TreeMap;
 
 import com.caih.bo.TrafficUnit;
 import com.caih.po.TrafficIndexRecord;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -14,20 +15,18 @@ import com.caih.po.CurveRecord;
 import com.caih.po.TrafficRecord;
 import com.caih.vo.TrafficData;
 import com.caih.vo.TrafficShow;
+import org.springframework.stereotype.Service;
 
+@Service
 public class TrafficService {
-	
-	private ApplicationContext applicationContext = null;
-	
-	public TrafficService(){
-		applicationContext = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
-	}
-	
+
+	@Autowired
+	TrafficMapper trafficMapper;
+
 	private TrafficRecord getOneNewRecord(){
 		TrafficRecord record = null;
 		try{
-			TrafficMapper recordmapper = (TrafficMapper) applicationContext.getBean("trafficMapper");
-			record = recordmapper.findNewOne();
+			record = trafficMapper.findNewOne();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -36,8 +35,7 @@ public class TrafficService {
 	private TrafficIndexRecord getOneNewIndexRecord(){
 		TrafficIndexRecord record = null;
 		try{
-			TrafficMapper recordmapper = (TrafficMapper) applicationContext.getBean("trafficMapper");
-			record = recordmapper.findIndexNewOne();
+			record = trafficMapper.findIndexNewOne();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -46,8 +44,7 @@ public class TrafficService {
 	private List<CurveRecord> getCurveRecordList(){
 		List<CurveRecord> curveRecords = null;
 		try{
-			TrafficMapper recordmapper = (TrafficMapper) applicationContext.getBean("trafficMapper");
-			curveRecords = recordmapper.findCurve();
+			curveRecords = trafficMapper.findCurve();
 		}catch(Exception e){
 			e.printStackTrace();
 		}

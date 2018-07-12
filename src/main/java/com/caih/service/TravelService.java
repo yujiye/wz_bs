@@ -4,6 +4,7 @@ import java.util.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -13,15 +14,13 @@ import com.caih.mapper.TravelMapper;
 import com.caih.po.TravelRecord;
 import com.caih.vo.TravelData;
 import com.caih.vo.TravelShow;
+import org.springframework.stereotype.Service;
 
+@Service
 public class TravelService {
-	private ApplicationContext applicationContext = null;
-	TravelMapper travelMapper = null;
 
-	public TravelService(){
-		applicationContext = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
-		travelMapper = (TravelMapper) applicationContext.getBean("travelMapper");
-	}
+	@Autowired
+	TravelMapper travelMapper;
 	/*
 	 * 功能 ： 获取去前nDay天时间
 	 * */

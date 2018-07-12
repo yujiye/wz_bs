@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 -->
 <mapper namespace="com.caih.mapper.TravelMapper">
 
-	<select id="findVehicle" resultType="travelrecord">
+	<select id="findVehicle" resultType="com.caih.po.TravelRecord">
 		SELECT
 			vehicle tkey,
 			vehicle_name tname,
@@ -21,7 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		vehicle
 	</select>	
 	
-	<select id="findTouristSource" resultType="travelrecord">
+	<select id="findTouristSource" resultType="com.caih.po.TravelRecord">
 		SELECT
 			from_provno tkey,
 			from_provno_name tname,
@@ -35,7 +35,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		LIMIT 10
 	</select>
 	
-	<select id="findStayTime" resultType="travelrecord">
+	<select id="findStayTime" resultType="com.caih.po.TravelRecord">
 		SELECT
 			nDay tkey,
 			nDay tname,
@@ -48,7 +48,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ORDER BY tkey
 	</select>
 	
-	<select id="findTouristFolwHours" resultType="travelrecord">
+	<select id="findTouristFolwHours" resultType="com.caih.po.TravelRecord">
 		SELECT 	
 			scenic_code tkey, 
 			scenic_name tname, 
@@ -62,7 +62,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ORDER BY tvalue DESC
 	</select>
 
-	<select id="findTouristFolwHoursbak" resultType="travelrecord" parameterType="int">
+	<select id="findTouristFolwHoursbak" resultType="com.caih.po.TravelRecord" parameterType="int">
 		SELECT
 			scenic_code tkey,
 			scenic_name tname,
@@ -76,7 +76,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ORDER BY tvalue DESC
 	</select>
 
-	<select id="findTouristFolwHoursYesterday" resultType="travelrecord">
+	<select id="findTouristFolwHoursYesterday" resultType="com.caih.po.TravelRecord">
         SELECT
             scenic_code tkey,
             scenic_name tname,
@@ -90,7 +90,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         ORDER BY tvalue DESC
 	</select>
 	
-	<select id="findConsumption" resultType="travelrecord">
+	<select id="findConsumption" resultType="com.caih.po.TravelRecord">
 		SELECT 
 			totalFee tkey, 
 			totalFee tname, 
@@ -104,7 +104,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		LIMIT 3
 	</select>
 	
-	<select id="findAppType" resultType="travelrecord">
+	<select id="findAppType" resultType="com.caih.po.TravelRecord">
 		SELECT 
 			t_appcode.appsmalltype tkey,
 			t_appcode.appsmalltype tname,
@@ -120,7 +120,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ORDER BY tvalue DESC 
 	</select>
 	
-	<select id="findtouristFlowDate" resultType="travelrecord">
+	<select id="findtouristFlowDate" resultType="com.caih.po.TravelRecord">
 		SELECT * FROM
 			(SELECT
 				STR_TO_DATE(CONCAT(month_id,LPAD(day_id,2,0),LPAD(hour_id,2,0)),'%Y%m%d%H') tkey,
@@ -138,7 +138,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ORDER BY tkey
 	</select>
 	
-	<select id="findtouristFlowWeek" resultType="travelrecord">
+	<select id="findtouristFlowWeek" resultType="com.caih.po.TravelRecord">
 		SELECT * FROM
 			(SELECT
 				STR_TO_DATE(CONCAT(month_id,LPAD(day_id,2,0)),'%Y%m%d') tkey,
@@ -156,7 +156,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ORDER BY tkey
 	</select>
 	
-	<select id="findtouristFlowMonth" resultType="travelrecord">
+	<select id="findtouristFlowMonth" resultType="com.caih.po.TravelRecord">
 		SELECT * FROM
 			(SELECT
 				STR_TO_DATE(CONCAT(month_id,LPAD(day_id,2,0),LPAD(hour_id,2,0)),'%Y%m%d') tkey,

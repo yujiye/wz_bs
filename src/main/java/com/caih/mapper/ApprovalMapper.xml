@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace命名空间，作用就是对sql进行分类化管理，理解sql隔离
+注意：使用mapper代理方法开发，namespace有特殊重要的作用，namespace等于mapper接口地址
+-->
+<mapper namespace="com.caih.mapper.ApprovalMapper">
+
+    <select id="findNew" resultType="com.caih.po.ApprovalRecord">
+        SELECT
+            id,
+            keyword,
+            CODE,
+            msg,
+            DATA,
+            isnew,
+            create_time
+        FROM
+            wz_big_sc.t_approvalbigscreen_approvaldata
+        WHERE
+            isnew = '1'
+	</select>
+
+    <select id="findNewByKeyword" parameterType="java.lang.String" resultType="com.caih.po.ApprovalRecord">
+        SELECT
+            id,
+            keyword,
+            CODE,
+            msg,
+            DATA,
+            isnew,
+            create_time
+        FROM
+            wz_big_sc.t_approvalbigscreen_approvaldata
+        WHERE
+            isnew = '1' AND keyword = #{keyword}
+	</select>
+
+</mapper>
+
+

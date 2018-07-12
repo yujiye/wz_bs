@@ -3,6 +3,7 @@ package com.caih.service;
 import java.util.*;
 
 import com.caih.bo.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -10,22 +11,19 @@ import com.caih.mapper.IhomeMapper;
 import com.caih.po.IhomeRecord;
 import com.caih.vo.IhomeData;
 import com.caih.vo.IhomeShow;
+import org.springframework.stereotype.Service;
 
+@Service
 public class IhomeService {
-	
-	private ApplicationContext applicationContext = null;
+
 	private List<IhomeRecord> records = null;
-	
-	public IhomeService(){
-		applicationContext = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
-		records = getRecords();
-	}
-	
+
+	@Autowired
+	IhomeMapper ihomeMapper;
 	private List<IhomeRecord> getRecords(){
 		List<IhomeRecord> records = null;
 		try{
-			IhomeMapper recordmapper = (IhomeMapper) applicationContext.getBean("ihomeMapper");
-			records = recordmapper.findNew();
+			records = ihomeMapper.findNew();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -34,8 +32,7 @@ public class IhomeService {
 	private List<IhomeRecord> getRecordsById(String id){
 		List<IhomeRecord> records = null;
 		try{
-			IhomeMapper recordmapper = (IhomeMapper) applicationContext.getBean("ihomeMapper");
-			records = recordmapper.findNewById(id);
+			records = ihomeMapper.findNewById(id);
 		}catch(Exception e){
 			e.printStackTrace();
 		}

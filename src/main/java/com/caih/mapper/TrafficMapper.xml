@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 -->
 <mapper namespace="com.caih.mapper.TrafficMapper">
 
-	<select id="findNewOne" resultType="trafficrecord">
+	<select id="findNewOne" resultType="com.caih.po.TrafficRecord">
 		SELECT	id, 
 				updatetime, 
 				current_index, 
@@ -45,7 +45,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		LIMIT 1
 	</select>
 
-	<select id="findIndexNewOne" resultType="trafficindexrecord">
+	<select id="findIndexNewOne" resultType="com.caih.po.TrafficIndexRecord">
 		SELECT id,
 			highway_index,
 			highway_speed,
@@ -60,7 +60,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		LIMIT 1
 	</select>
 
-	<select id="findCurve" resultType="curverecord">
+	<select id="findCurve" resultType="com.caih.po.CurveRecord">
 		SELECT	updatetime, 
 				current_index
 		FROM 
