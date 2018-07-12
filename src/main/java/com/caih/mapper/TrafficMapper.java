@@ -8,7 +8,7 @@ import com.caih.po.TrafficRecord;
 
 public interface TrafficMapper {
 
-	public TrafficRecord findNewOne();
-	public TrafficIndexRecord findIndexNewOne();
-	public List<CurveRecord> findCurve();
+	TrafficRecord findNewOne();
+	TrafficIndexRecord findIndexNewOne();
+	List<CurveRecord> findCurve();
 }

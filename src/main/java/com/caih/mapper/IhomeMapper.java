@@ -6,6 +6,6 @@ import com.caih.po.IhomeRecord;
 
 public interface IhomeMapper {
 
-	public List<IhomeRecord> findNew();
-	public List<IhomeRecord> findNewById(String id);
+	List<IhomeRecord> findNew();
+	List<IhomeRecord> findNewById(String id);
 }
