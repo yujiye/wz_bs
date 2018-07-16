@@ -117,11 +117,17 @@ public class TravelService {
 			//获取今天的游客数量，循环保证数据断档时仍能取到历史数据
 			records = travelMapper.findTouristFolwHoursbak( nday );
 			nday++;
+			if( nday > 15) {
+				return list;
+			}
 		}
 		while (yesterdayRecords == null || yesterdayRecords.isEmpty()) {
 			//获取昨天的游客数量，循环保证数据断档时仍能取到历史数据
 			yesterdayRecords = travelMapper.findTouristFolwHoursbak( nday );
 			nday++;
+			if( nday > 20) {
+				return list;
+			}
 		}
 		Map<String,String> yesterdayMap = travelRecordList2Map(yesterdayRecords);
 
