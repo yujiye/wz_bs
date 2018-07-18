@@ -10,6 +10,7 @@ public interface TravelMapper {
 	List<TravelRecord> findStayTime();
 	List<TravelRecord> findTouristFolwHours();
 	List<TravelRecord> findTouristFolwHoursbak(int nDay);
+	List<TravelRecord> findTouristFolwHoursCapacity(int nDay);
 	List<TravelRecord> findTouristFolwHoursYesterday();
 	List<TravelRecord> findConsumption();
 	List<TravelRecord> findAppType();

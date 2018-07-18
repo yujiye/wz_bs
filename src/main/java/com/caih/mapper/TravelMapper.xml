@@ -76,6 +76,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ORDER BY tvalue DESC
 	</select>
 
+	<select id="findTouristFolwHoursCapacity" resultType="com.caih.po.TravelRecord" parameterType="int">
+		SELECT
+		scenic_code tkey,
+		scenic_name tname,
+		SUM(usersum) tvalue
+		FROM
+		wz_big_sc.t_travelbigscreen_scenicflowhours
+		WHERE
+		DATE_SUB(NOW(), INTERVAL 1+24*#{nDay} HOUR) &lt; create_time AND create_time &lt; DATE_SUB(NOW(), INTERVAL 24*#{nDay} HOUR)
+		and (
+		scenic_code = '450403003000003' # 珠山景区
+		or scenic_code = '450403003000005' # 白云山公园
+		OR scenic_code = '450423003000003' # 梁羽生公园
+		OR scenic_code = '450422003000002' # 黎寨蝴蝶谷
+		OR scenic_code = '450423003000001' # 蒙山县永安王城景区
+		OR scenic_code = '450422003000001' # 藤县石表山休闲旅游景区
+		OR scenic_code = '450481003000001' # 天龙顶山地公园
+		OR scenic_code = '450403003000001' # 梧州骑楼城—龙母庙景区
+		OR scenic_code = '450403003000004' # 梧州市中山公园
+		)
+		GROUP BY
+		scenic_code
+		ORDER BY tvalue DESC
+	</select>
+
 	<select id="findTouristFolwHoursYesterday" resultType="com.caih.po.TravelRecord">
         SELECT
             scenic_code tkey,
@@ -105,19 +130,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="findAppType" resultType="com.caih.po.TravelRecord">
-		SELECT 
+		SELECT
 			t_appcode.appsmalltype tkey,
 			t_appcode.appsmalltype tname,
-			SUM(t_touristapp.num) tvalue
-		FROM 
+			num tvalue
+		FROM
 			t_travelbigscreen_appcode t_appcode,
-			t_travelbigscreen_touristapp t_touristapp
+			(
+				SELECT 	appBigType,
+				appSmallType,
+				SUM(num) num
+
+				FROM
+				t_travelbigscreen_touristapp t_touristapp
+				WHERE
+				DATE_SUB(NOW(), INTERVAL 30 DAY) &lt; t_touristapp.create_time
+				GROUP BY appBigType,appSmallType
+			) t_touristapp
 		WHERE
-			t_appcode.appbigtype_id = t_touristapp.appBigType 
+			t_appcode.appbigtype_id = t_touristapp.appBigType
 			AND t_appcode.appsmalltype_id = t_touristapp.appSmallType
-			AND DATE_SUB(NOW(), INTERVAL 30 DAY) &lt; t_touristapp.create_time
-		GROUP BY tkey
-		ORDER BY tvalue DESC 
+		ORDER BY tvalue DESC
+		LIMIT 20
 	</select>
 	
 	<select id="findtouristFlowDate" resultType="com.caih.po.TravelRecord">
