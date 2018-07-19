@@ -137,14 +137,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM
 			t_travelbigscreen_appcode t_appcode,
 			(
-				SELECT 	appBigType,
-				appSmallType,
-				SUM(num) num
-
+				SELECT
+					appBigType,
+					appSmallType,
+					SUM(num) num
 				FROM
-				t_travelbigscreen_touristapp t_touristapp
+					t_travelbigscreen_touristapp t_touristapp
 				WHERE
-				DATE_SUB(NOW(), INTERVAL 30 DAY) &lt; t_touristapp.create_time
+					DATE_SUB(NOW(), INTERVAL 30 DAY) &lt; t_touristapp.create_time
 				GROUP BY appBigType,appSmallType
 			) t_touristapp
 		WHERE

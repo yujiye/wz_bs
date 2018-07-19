@@ -216,6 +216,46 @@ public class TravelService {
 		}
 		return list;
 	}
+	//景区承载量
+	public List<TravelBaseUnit> getCapacity(){
+		List<TravelBaseUnit> list = new ArrayList<TravelBaseUnit>();
+		List<TravelRecord> records = null;
+		int nDay = 0;
+		while(records == null || records.isEmpty()) {
+			records = travelMapper.findTouristFolwHoursCapacity(nDay);
+			nDay++;
+		}
+		for(TravelRecord record : records){
+			float percent = 0.0f;
+			TravelBaseUnit baseunit = new TravelBaseUnit();
+			switch (record.getTkey()){
+				case "450403003000003": percent = (Integer.parseInt( record.getTvalue().trim() ) / 8000.0f); break;//珠山景区
+				case "450403003000005": percent = (Integer.parseInt( record.getTvalue().trim() ) / 30000.0f); break;//白云山公园
+				case "450423003000003": percent = (Integer.parseInt( record.getTvalue().trim() ) / 4000.0f); break;//梁羽生公园
+				case "450422003000002": percent = (Integer.parseInt( record.getTvalue().trim() ) / 2000.0f); break;//黎寨蝴蝶谷
+				case "450423003000001": percent = (Integer.parseInt( record.getTvalue().trim() ) / 10000.0f); break;//蒙山县永安王城景区
+				case "450422003000001": percent = (Integer.parseInt( record.getTvalue().trim() ) / 15000.0f); break;//藤县石表山休闲旅游景区
+				case "450481003000001": percent = (Integer.parseInt( record.getTvalue().trim() ) / 1000.0f); break;//天龙顶山地公园
+				case "450403003000001": percent = (Integer.parseInt( record.getTvalue().trim() ) / 38000.0f); break;//梧州骑楼城—龙母庙景区
+				case "450403003000004": percent = (Integer.parseInt( record.getTvalue().trim() ) / 10000.0f); break;//梧州市中山公园
+			}
+			//保留四位小数
+			percent = (float)(Math.round(percent*10000))/10000;
+			baseunit.setName(record.getTname());
+			baseunit.setValue(String.valueOf(percent));
+			if(baseunit.getValue().startsWith("0.") && !baseunit.getValue().endsWith("0.0")) {
+				list.add(baseunit);
+			}
+		}
+		//根据百分率进行从高到低排序
+		Collections.sort(list, new Comparator<TravelBaseUnit>() {
+			@Override
+			public int compare(TravelBaseUnit o1, TravelBaseUnit o2) {
+				return o2.getValue().compareTo( o1.getValue() );
+			}
+		});
+		return list;
+	}
 	public TravelData getData(){
 		
 		TravelData travelData = new TravelData();
@@ -226,6 +266,7 @@ public class TravelService {
 		travelData.setTouristNum(getTouristFolwHoursbak());
 		travelData.setConsumption(getConsumption());
 		travelData.setTouristApp(getAppType());
+		travelData.setScenicCapacity(getCapacity());
 		
 		travelData.setTouristFlowDate(getTouristFlowDate());
 		travelData.setTouristFlowWeek(getTouristFlowWeek());

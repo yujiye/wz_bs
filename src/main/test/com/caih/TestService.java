@@ -1,7 +1,9 @@
 package com.caih;
 
 import com.caih.service.ApprovalService;
+import com.caih.service.TravelService;
 import com.caih.vo.ApprovalShow;
+import com.caih.vo.TravelShow;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +15,16 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class TestService {
     @Autowired
     ApprovalService approvalService;
+    @Autowired
+    TravelService travelService;
     @Test
     public void testApprovalService(){
         ApprovalShow show = approvalService.getShow();
+        System.out.println( show );
+    }
+    @Test
+    public void testTravelService(){
+        TravelShow show = travelService.getShow();
         System.out.println( show );
     }
 }

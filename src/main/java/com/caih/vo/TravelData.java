@@ -16,6 +16,7 @@ public class TravelData {
 	private List<TravelBaseUnit> touristFlowDate;//日客流量
 	private List<TravelBaseUnit> touristFlowWeek;//周客流量
 	private List<TravelBaseUnit> touristFlowMonth;//月客流量
+	private List<TravelBaseUnit> scenicCapacity;//景区承载量
 	
 	public List<TravelTouristUnit> getTouristNum() {
 		return touristNum;
@@ -72,5 +73,11 @@ public class TravelData {
 		this.touristFlowMonth = touristFlowMonth;
 	}
 
-	
+	public List<TravelBaseUnit> getScenicCapacity() {
+		return scenicCapacity;
+	}
+
+	public void setScenicCapacity(List<TravelBaseUnit> scenicCapacity) {
+		this.scenicCapacity = scenicCapacity;
+	}
 }

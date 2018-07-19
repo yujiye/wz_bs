@@ -1,32 +1,40 @@
 package com.caih;
 
+import com.caih.bo.TravelBaseUnit;
 import com.caih.mapper.ApprovalMapper;
+import com.caih.mapper.CreditMapper;
+import com.caih.mapper.TravelMapper;
 import com.caih.po.ApprovalRecord;
+import com.caih.po.CreditRecord;
+import com.caih.po.TravelRecord;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:applicationContext.xml")
 public class TestDao {
 
-    private ApplicationContext applicationContext = null;
-    private List<ApprovalRecord> records = null;
+    @Autowired
+    CreditMapper creditMapper;
+    @Autowired
+    TravelMapper travelMapper;
 
     @Test
     public void testApprovalMap(){
-        applicationContext = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
-        ApprovalMapper recordmapper = (ApprovalMapper) applicationContext.getBean("approvalMapper");
-        records = recordmapper.findNew();
-        System.out.println(records);
+        CreditRecord record = creditMapper.findRecordByCompany("梧州市粤广石料厂");
+        System.out.println(record);
     }
 
     @Test
-    public void testApprovalMapByKeyword(){
-        ApprovalRecord record = null;
-        applicationContext = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
-        ApprovalMapper recordmapper = (ApprovalMapper) applicationContext.getBean("approvalMapper");
-        record = recordmapper.findNewByKeyword("onwork");
-        System.out.println(record);
+    public void testTravelMapper(){
+        List<TravelRecord> list = travelMapper.findTouristFolwHoursCapacity(0);
+        System.out.println(list);
     }
 }
