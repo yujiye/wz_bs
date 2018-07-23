@@ -9,6 +9,7 @@ import os
 import logging
 import uuid
 import pymysql
+import MailUtil
 
 fileName2tableName = {
         "RT_PF":"t_travelbigscreen_scenicflowhours",
@@ -59,9 +60,17 @@ def file2mysql(db, tableName, fileName):
             temp = [str(uuid.uuid1())]
             temp.extend(l.split("	"))
             datalist.append(temp)
+#    判断datalist是否为空，为空的话则发邮件提醒 
+        if len(datalist) == 0:
+            MailUtil.sendMail(configFile = "config/config_mail.ini", 
+                              section = "mail", 
+                              subject="旅游数据断流提醒", 
+                              context="文件空，文件名：" + fileName)
+            logging.info("文件空，文件名：" + fileName)
+        else:
 #    将list格式数据插入数据库    
-        insertDatas(db, tableName, tablefiled, datalist)
-        logging.info("Success to insert mysql. fileName is: " + fileName)
+            insertDatas(db, tableName, tablefiled, datalist)
+            logging.info("Success to insert mysql. fileName is: " + fileName)
     except:
         logging.error("Error: unable to save to mysql. fileName is: " + fileName)
         
