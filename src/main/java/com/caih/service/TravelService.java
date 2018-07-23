@@ -161,7 +161,7 @@ public class TravelService {
 		for(String key : yesterdayMap.keySet()){
 			yesterdaySum = yesterdaySum + Integer.parseInt(yesterdayMap.get(key));
 		}
-        //计算昨天的同时刻的总人数
+        //计算上一月的同时刻的总人数
         for(String key : monthMap.keySet()){
             monthSum = monthSum + Integer.parseInt(monthMap.get(key));
         }
