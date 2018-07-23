@@ -2,6 +2,7 @@ package com.caih.controller;
 
 import com.caih.service.*;
 import com.caih.vo.*;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,6 +23,8 @@ public class GetData {
 	TravelService travelService;
     @Autowired
     ApprovalService approvalService;
+	@Autowired
+	CreditService creditService;
 
 	@CrossOrigin(origins={"*"}, methods={RequestMethod.GET, RequestMethod.POST})
 	@RequestMapping("/getIhomeData")
@@ -55,5 +58,12 @@ public class GetData {
 	@ResponseBody
 	public ApprovalShow getApprovalData(){
 		return approvalService.getShow();
+	}
+
+	@CrossOrigin(origins={"*"}, methods={RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping("/getCreditData")
+	@ResponseBody
+	public CreditShow getCreditData(@Param("company") String company){
+		return creditService.getShowByCompany(company);
 	}
 }

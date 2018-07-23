@@ -103,64 +103,6 @@ public class IhomeServiceImpl implements IhomeService {
         map.put("satisfactionRate", String.valueOf(sum));
         return map;
     }
-    private IhomeServicePurchase getIhomeServicePurchase(){
-        IhomeServicePurchase ihomeServicePurchase = new IhomeServicePurchase();
-        Map<String, String> servicePurchase = (Map<String, String>) getMapsData("2").get("政府购买服务分布");//政府购买服务分布
-
-        ihomeServicePurchase.setTotalNum(servicePurchase.get("总记录数"));
-        ihomeServicePurchase.setOther(servicePurchase.get("--无--"));
-        ihomeServicePurchase.setSanWu(servicePurchase.get("三无"));
-        ihomeServicePurchase.setWuBao(servicePurchase.get("五保"));
-        ihomeServicePurchase.setDiBao(servicePurchase.get("低保"));
-        ihomeServicePurchase.setKunNanLaoRen(servicePurchase.get("困难老人"));
-        ihomeServicePurchase.setShiDu(servicePurchase.get("失独"));
-        ihomeServicePurchase.setShiNeng(servicePurchase.get("失能"));
-        ihomeServicePurchase.setCanJi(servicePurchase.get("残疾"));
-        ihomeServicePurchase.setKongChao(servicePurchase.get("空巢"));
-        ihomeServicePurchase.setKeyEntitled(servicePurchase.get("重点优抚对象"));
-        ihomeServicePurchase.setGaoLing(servicePurchase.get("高龄"));
-        return ihomeServicePurchase;
-    }
-    private IhomeIll getIhomeIll(){
-        IhomeIll ihomeIll = new IhomeIll();
-        Map<String, String> ill = (Map<String, String>) getMapsData("3").get("病情分布");//病情分布
-        ihomeIll.setBaineizhang(ill.get("白内障"));
-        ihomeIll.setFengshi(ill.get("风湿"));
-        ihomeIll.setGaoxueya(ill.get("高血压"));
-        ihomeIll.setGuanxin(ill.get("冠心病"));
-        ihomeIll.setNormal(ill.get("正常"));
-        ihomeIll.setOther(ill.get("其他"));
-        ihomeIll.setShenjieshi(ill.get("肾结石"));
-        ihomeIll.setShili(ill.get("视力障碍"));
-        ihomeIll.setTangniao(ill.get("糖尿病"));
-        ihomeIll.setTotalNum(ill.get("总记录"));
-        ihomeIll.setXinzang(ill.get("心脏病"));
-        ihomeIll.setZhongfeng(ill.get("中风"));
-        return ihomeIll;
-    }
-    private IhomeMerchantType getIhomeMerchantType(){
-        IhomeMerchantType ihomeMerchantType = new IhomeMerchantType();
-        Map<String, String> merchantType = (Map<String, String>) getMapsData("4").get("商家类型分布");//商家类型分布
-        ihomeMerchantType.setFazhi(merchantType.get("法制服务"));
-        ihomeMerchantType.setJiazheng(merchantType.get("家政服务"));
-        ihomeMerchantType.setShebao(merchantType.get("社会保障"));
-        ihomeMerchantType.setWaimai(merchantType.get("美食外卖"));
-        ihomeMerchantType.setWangdian(merchantType.get("服务网点"));
-        ihomeMerchantType.setWeixiu(merchantType.get("综合维修"));
-        ihomeMerchantType.setYiliao(merchantType.get("医疗保健"));
-        ihomeMerchantType.setYule(merchantType.get("休闲娱乐"));
-        return ihomeMerchantType;
-    }
-    private IhomeUserNum getIhomeUserNum(){
-        IhomeUserNum ihomeUserNum = new IhomeUserNum();
-        Map<String, String> userNum = (Map<String, String>) getMapsData("14").get("用户数量");//用户数量
-        ihomeUserNum.setHugong(userNum.get("护工"));
-        ihomeUserNum.setShangjia(userNum.get("商家"));
-        ihomeUserNum.setShegong(userNum.get("社工"));
-        ihomeUserNum.setYigong(userNum.get("义工"));
-        ihomeUserNum.setZhiyuanzhe(userNum.get("青年志愿者"));
-        return ihomeUserNum;
-    }
 
     private List<IhomeBaseUnit> getIhomeServicePurchaseA(){
         List<IhomeBaseUnit> list = new ArrayList<IhomeBaseUnit>();

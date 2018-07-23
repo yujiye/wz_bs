@@ -28,7 +28,7 @@ public class TestDao {
 
     @Test
     public void testApprovalMap(){
-        CreditRecord record = creditMapper.findRecordByCompany("梧州市粤广石料厂");
+        List<CreditRecord> record = creditMapper.findRecordByCompany("梧州市粤广石料厂");
         System.out.println(record);
     }
 

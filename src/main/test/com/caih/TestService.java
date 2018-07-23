@@ -1,8 +1,10 @@
 package com.caih;
 
 import com.caih.service.ApprovalService;
+import com.caih.service.CreditService;
 import com.caih.service.TravelService;
 import com.caih.vo.ApprovalShow;
+import com.caih.vo.CreditShow;
 import com.caih.vo.TravelShow;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,6 +19,8 @@ public class TestService {
     ApprovalService approvalService;
     @Autowired
     TravelService travelService;
+    @Autowired
+    CreditService creditService;
     @Test
     public void testApprovalService(){
         ApprovalShow show = approvalService.getShow();
@@ -25,6 +29,11 @@ public class TestService {
     @Test
     public void testTravelService(){
         TravelShow show = travelService.getShow();
+        System.out.println( show );
+    }
+    @Test
+    public void testCreditService(){
+        CreditShow show = creditService.getShowByCompany(null);
         System.out.println( show );
     }
 }
