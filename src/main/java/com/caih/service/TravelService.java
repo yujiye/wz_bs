@@ -111,6 +111,7 @@ public class TravelService {
 		List<TravelTouristUnit> list = new ArrayList<TravelTouristUnit>();
 		List<TravelRecord> records = null;
 		List<TravelRecord> yesterdayRecords = null;
+        List<TravelRecord> monthRecords = null;
 		//nday表示前nday天
 		int nday = 0;
 		while(records == null || records.isEmpty()){
@@ -129,10 +130,21 @@ public class TravelService {
 				return list;
 			}
 		}
+		int dayMonth = 0;
+        while (monthRecords == null || monthRecords.isEmpty()) {
+            //获取上月同一时间段的游客数量，循环保证数据断档时仍能取到历史数据
+            monthRecords = travelMapper.findTouristFolwHoursbak( 30 + dayMonth );
+            dayMonth++;
+            if( dayMonth > 10) {
+                return list;
+            }
+        }
 		Map<String,String> yesterdayMap = travelRecordList2Map(yesterdayRecords);
+        Map<String,String> monthMap = travelRecordList2Map(monthRecords);
 
 		int sum = 0;
 		int yesterdaySum = 0;
+        int monthSum = 0;
 		//计算今天的当前总人数并赋值
 		for(TravelRecord record : records){
 			TravelTouristUnit baseunit = new TravelTouristUnit();
@@ -140,6 +152,8 @@ public class TravelService {
 			baseunit.setNum(record.getTvalue());
 			//获取昨天的人数
 			baseunit.setDategrowth(yesterdayMap.get(record.getTkey()));
+            //获取上月同一时间段的人数
+            baseunit.setMonthgrowth(monthMap.get(record.getTkey()));
 			sum = sum + Integer.parseInt(record.getTvalue());
 			list.add(baseunit);
 		}
@@ -147,11 +161,16 @@ public class TravelService {
 		for(String key : yesterdayMap.keySet()){
 			yesterdaySum = yesterdaySum + Integer.parseInt(yesterdayMap.get(key));
 		}
+        //计算昨天的同时刻的总人数
+        for(String key : monthMap.keySet()){
+            monthSum = monthSum + Integer.parseInt(monthMap.get(key));
+        }
 
 		TravelTouristUnit baseunit = new TravelTouristUnit();
 		baseunit.setName("currentNum");
 		baseunit.setNum(String.valueOf(sum));
 		baseunit.setDategrowth(String.valueOf(yesterdaySum));
+        baseunit.setMonthgrowth(String.valueOf(monthSum));
 		list.add(0, baseunit);
 		return list;
 	}
