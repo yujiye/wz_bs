@@ -26,6 +26,18 @@ public class TravelServiceImpl implements TravelService {
         c.add(Calendar.DATE, - nDay);
         return c.getTime();
     }
+    /**
+     * 功能删除景区名字头部的“梧州市”和“梧州”
+     * */
+    private String filterScenicName(String scenicName){
+        if(  scenicName.indexOf("梧州市") != -1 ){
+            return scenicName.substring(3);
+        }else if(scenicName.indexOf("梧州") != -1){
+            return scenicName.substring(2);
+        }else {
+            return scenicName;
+        }
+    }
     private Map<String,String> travelRecordList2Map(List<TravelRecord> list){
         Map<String,String> map = new HashMap<String,String>();
         for(TravelRecord e : list){
@@ -144,12 +156,40 @@ public class TravelServiceImpl implements TravelService {
         //计算今天的当前总人数并赋值
         for(TravelRecord record : records){
             TravelTouristUnit baseunit = new TravelTouristUnit();
-            baseunit.setName(record.getTname());
+            //删除景区名称中头部的“梧州市”或者“梧州”两个字
+            baseunit.setName(filterScenicName(record.getTname()));
             baseunit.setNum(record.getTvalue());
-            //获取昨天的人数
-            baseunit.setDategrowth(yesterdayMap.get(record.getTkey()));
-            //获取上月同一时间段的人数
-            baseunit.setMonthgrowth(monthMap.get(record.getTkey()));
+
+            //设置逻辑，昨天和上月游客量同比过大则把昨天或者上月的量设置为null
+            String todayNum = record.getTvalue();
+            String yesterdayNum = yesterdayMap.get(record.getTkey());
+            String monthNum = monthMap.get(record.getTkey());
+            //todayNum,yesterdayNum有可能为null
+            if( todayNum != null && yesterdayNum != null ){
+                Float yesterdayinc = ( Float.parseFloat( todayNum ) - Float.parseFloat( yesterdayNum ) ) / Float.parseFloat( yesterdayNum );
+                //获取昨天的人数
+                if( yesterdayinc < 2 && yesterdayinc > -0.8 ) {
+                    baseunit.setDategrowth(yesterdayNum);
+                }else{
+                    baseunit.setDategrowth(null);
+                }
+            }else{
+                baseunit.setDategrowth(null);
+            }
+            //todayNum,monthNum有可能为null
+            if( todayNum != null && monthNum != null ) {
+                Float monthdayinc = (Float.parseFloat(todayNum) - Float.parseFloat(monthNum)) / Float.parseFloat(monthNum);
+                //获取上月同一时间段的人数
+                if (monthdayinc < 2 && monthdayinc > -0.8) {
+                    baseunit.setMonthgrowth(monthNum);
+                } else {
+                    baseunit.setMonthgrowth(null);
+                }
+            }else {
+                baseunit.setMonthgrowth(null);
+            }
+
+            //计算总人数
             sum = sum + Integer.parseInt(record.getTvalue());
             list.add(baseunit);
         }
@@ -256,7 +296,8 @@ public class TravelServiceImpl implements TravelService {
             }
             //保留四位小数
             percent = (float)(Math.round(percent*10000))/10000;
-            baseunit.setName(record.getTname());
+            //删除景区名称中头部的“梧州市”或者“梧州”两个字
+            baseunit.setName(filterScenicName(record.getTname()));
             baseunit.setValue(String.valueOf(percent));
             if(baseunit.getValue().startsWith("0.") && !baseunit.getValue().endsWith("0.0")) {
                 list.add(baseunit);

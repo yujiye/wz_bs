@@ -25,20 +25,22 @@ public class GetData {
     ApprovalService approvalService;
 	@Autowired
 	CreditService creditService;
-
+	//用/getIhomeData.action访问
 	@CrossOrigin(origins={"*"}, methods={RequestMethod.GET, RequestMethod.POST})
 	@RequestMapping("/getIhomeData")
 	public @ResponseBody IhomeShow getIhomeData(){
 		return ihomeService.getShow();
 	}
-	
+
+	//用/getTrafficData.action访问
 	@CrossOrigin(origins={"*"}, methods={RequestMethod.GET, RequestMethod.POST})
 	@RequestMapping("/getTrafficData")
 	@ResponseBody
 	public TrafficShow getTrafficData(){
 		return trafficService.getShow();
 	}
-	
+
+	//用/getMedicalData.action访问
 	@CrossOrigin(origins={"*"}, methods={RequestMethod.GET, RequestMethod.POST})
 	@RequestMapping("/getMedicalData")
 	@ResponseBody
@@ -46,6 +48,7 @@ public class GetData {
 		return medicalService.getShow();
 	}
 
+	//用/getTravelData.action访问
 	@CrossOrigin(origins={"*"}, methods={RequestMethod.GET, RequestMethod.POST})
 	@RequestMapping("/getTravelData")
 	@ResponseBody
@@ -53,6 +56,7 @@ public class GetData {
 		return travelService.getShow();
 	}
 
+	//用/getApprovalData.action访问
 	@CrossOrigin(origins={"*"}, methods={RequestMethod.GET, RequestMethod.POST})
 	@RequestMapping("/getApprovalData")
 	@ResponseBody
@@ -60,6 +64,7 @@ public class GetData {
 		return approvalService.getShow();
 	}
 
+	//用/getCreditData.action访问
 	@CrossOrigin(origins={"*"}, methods={RequestMethod.GET, RequestMethod.POST})
 	@RequestMapping("/getCreditData")
 	@ResponseBody
